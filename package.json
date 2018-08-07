@@ -1,0 +1,25 @@
+{
+  "name": "@mdi/react",
+  "version": "0.8.0",
+  "description": "React Dist for Material Design Icons",
+  "main": "Icon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Templarian/MaterialDesign-React.git"
+  },
+  "keywords": [
+    "Material",
+    "Design",
+    "Icons",
+    "React"
+  ],
+  "author": "Austin Andrews",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Templarian/MaterialDesign-React/issues"
+  },
+  "homepage": "https://github.com/Templarian/MaterialDesign-React#readme"
+}
