@@ -6,8 +6,8 @@ Dist for Material Design Icons React
 
 ```javascript
 import React, { Component } from 'react'
-import { mdiAccount } from '@mdi/js'
 import Icon from '@mdi/react'
+import { mdiAccount } from '@mdi/js'
 
 class App extends Component {
   render() {
