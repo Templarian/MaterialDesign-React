@@ -1,6 +1,10 @@
-# MaterialDesign-React
+# Material Design Icons React
 
-Dist for Material Design Icons React
+Material Design Icons can be used in React with a custom component or with the one provided in this module.
+
+```
+npm install @mdi/react --save-dev
+```
 
 ## Props
 
