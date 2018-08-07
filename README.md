@@ -5,6 +5,7 @@ Dist for Material Design Icons React
 ## Props
 
 ```javascript
+import React, { Component } from 'react'
 import { mdiAccount } from '@mdi/js'
 
 class App extends Component {
