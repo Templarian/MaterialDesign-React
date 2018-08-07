@@ -9,10 +9,32 @@ class Icon extends Component {
       path, size, horizontal, vertical,
       rotate, color, spin
     } = this.props;
+    const width = isNaN(size)
+      ? size
+      : `${size * 1.5}rem`;
+    const transform = [];
+    if (horizontal) {
+      transform.push('scaleX(-1)');
+    }
+    if (vertical) {
+      transform.push('scaleY(-1)');
+    }
+    if (rotate !== 0) {
+      transform.push(`rotate(${rotate})`);
+    }
+    if (spin) {
+      throw 'Spin is not supported yet.';
+    }
     return (
       <svg viewBox="0 0 24 24"
-        style={{ width: "1.5rem" }}>
-        <path d={path} />
+        style={{
+          width,
+          transform: transform.join(' ')
+        }}>
+        <path d={path}
+          style={{
+            fill: color
+          }}/>
       </svg>
     );
   }
@@ -33,7 +55,7 @@ Icon.defaultTypes = {
   horizontal: false,
   vertical: false,
   rotate: 0,
-  color: '#000',
+  color: null,
   bool: false
 };
 
