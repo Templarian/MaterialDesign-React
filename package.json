@@ -4,7 +4,9 @@
   "description": "React Dist for Material Design Icons",
   "main": "Icon.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,16 @@
   "bugs": {
     "url": "https://github.com/Templarian/MaterialDesign-React/issues"
   },
-  "homepage": "https://github.com/Templarian/MaterialDesign-React#readme"
+  "homepage": "https://github.com/Templarian/MaterialDesign-React#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "react": "^16.4.2",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  }
 }
