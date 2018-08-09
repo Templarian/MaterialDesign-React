@@ -43,7 +43,10 @@ class Icon extends Component {
 
 Icon.propTypes = {
   path: PropTypes.string.isRequired,
-  size: PropTypes.number,
+  size: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   horizontal: PropTypes.bool,
   vertical: PropTypes.bool,
   rotate: PropTypes.number,
