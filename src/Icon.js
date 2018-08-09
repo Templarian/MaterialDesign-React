@@ -48,7 +48,7 @@ Icon.propTypes = {
   spin: PropTypes.bool
 };
 
-Icon.defaultTypes = {
+Icon.defaultProps = {
   size: 1,
   horizontal: false,
   vertical: false,
