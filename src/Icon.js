@@ -27,8 +27,11 @@ class Icon extends Component {
       <svg viewBox="0 0 24 24"
         style={{
           width,
-          transform: transform.join(' ')
+          transform: transform.join(' '),
+          animation: spin && 'spin linear 3s infinite',
+          transformOrigin: 'center'
         }}>
+        {spin && <style>{'@keyframes spin { to { transform: rotate(360deg) } }'}</style>}
         <path d={path}
           style={{
             fill: color
