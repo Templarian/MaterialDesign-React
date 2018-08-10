@@ -20,9 +20,6 @@ class Icon extends Component {
     if (rotate !== 0) {
       transform.push(`rotate(${rotate})`);
     }
-    if (spin) {
-      throw 'Spin is not supported yet.';
-    }
     return (
       <svg viewBox="0 0 24 24"
         style={{
