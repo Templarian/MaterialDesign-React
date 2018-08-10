@@ -20,12 +20,13 @@ class Icon extends Component {
     if (rotate !== 0) {
       transform.push(`rotate(${rotate})`);
     }
+    const spinSec = isNaN(spin) ? 2 : spin;
     return (
       <svg viewBox="0 0 24 24"
         style={{
           width,
           transform: transform.join(' '),
-          animation: spin && `spin linear ${isNaN(spin) ? 2 : spin}s infinite`,
+          animation: spin && `spin linear ${spinSec}s infinite`,
           transformOrigin: spin && 'center'
         }}>
         {spin && <style>{'@keyframes spin { to { transform: rotate(360deg) } }'}</style>}
