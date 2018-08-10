@@ -25,7 +25,7 @@ class Icon extends Component {
         style={{
           width,
           transform: transform.join(' '),
-          animation: spin && `spin linear ${isNaN(spin) ? 3 : spin}s infinite`,
+          animation: spin && `spin linear ${isNaN(spin) ? 2 : spin}s infinite`,
           transformOrigin: spin && 'center'
         }}>
         {spin && <style>{'@keyframes spin { to { transform: rotate(360deg) } }'}</style>}
@@ -60,7 +60,7 @@ Icon.defaultProps = {
   vertical: false,
   rotate: 0,
   color: null,
-  bool: false
+  spin: false
 };
 
 export default Icon;
