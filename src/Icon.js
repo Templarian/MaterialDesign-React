@@ -25,7 +25,7 @@ class Icon extends Component {
         style={{
           width,
           transform: transform.join(' '),
-          animation: spin && 'spin linear 3s infinite',
+          animation: spin && `spin linear ${isNaN(spin) ? 3 : spin}s infinite`,
           transformOrigin: spin && 'center'
         }}>
         {spin && <style>{'@keyframes spin { to { transform: rotate(360deg) } }'}</style>}
@@ -48,7 +48,10 @@ Icon.propTypes = {
   vertical: PropTypes.bool,
   rotate: PropTypes.number,
   color: PropTypes.string,
-  spin: PropTypes.bool
+  spin: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.number
+  ])
 };
 
 Icon.defaultProps = {
