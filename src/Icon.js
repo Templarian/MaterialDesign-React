@@ -26,7 +26,7 @@ class Icon extends Component {
           width,
           transform: transform.join(' '),
           animation: spin && 'spin linear 3s infinite',
-          transformOrigin: 'center'
+          transformOrigin: spin && 'center'
         }}>
         {spin && <style>{'@keyframes spin { to { transform: rotate(360deg) } }'}</style>}
         <path d={path}
