@@ -28,6 +28,14 @@ class App extends Component {
 } 
 ```
 
-## Coming Soon
+## Props
 
-Spin is a work in progress.
+| Prop       | PropTypes      | Default  | Details |
+|------------|----------------|----------|---------|
+| path       | string         | required | SVG path data. Usually from @mdi/js |
+| size       | number, string | `1`      | `{size * 1.5}rem` |
+| horizontal | bool           | `false ` | Flip Horizontal |
+| vertical   | bool           | `false`  | Flip Vertical |
+| rotate     | number         | `0 `     | degrees `0` to `360` |
+| color      | string         | `#000`   | `rgb()` / `rgba()` / `#000` |
+| spin       | bool, number   | `false`  | `true = 2s`, `{spin}s` |
