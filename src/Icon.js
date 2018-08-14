@@ -18,7 +18,7 @@ class Icon extends Component {
       transform.push('scaleY(-1)');
     }
     if (rotate !== 0) {
-      transform.push(`rotate(${rotate})`);
+      transform.push(`rotate(${rotate}deg)`);
     }
     const spinSec = spin === true || isNaN(spin) ? 2 : spin;
     return (
