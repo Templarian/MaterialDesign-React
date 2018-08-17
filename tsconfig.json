@@ -1,19 +1,17 @@
 {
-    "compilerOptions": {
-      "outDir": "./lib",
-      "target": "es5",
-      "module": "commonjs",
-      "noImplicitAny": true,
-      "removeComments": true,
-      "declaration": true,
-      "sourceMap": true,
-      "jsx": "react"
-    },
-    "include": [
-      "./src/**/*.tsx",
-      "./src/**/*.ts"
-    ],
-    "exclude": [
-      "node_modules"
-    ]
-  }
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "jsx": "react",
+    "module": "es6",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./lib",
+    "removeComments": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5"
+  },
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
+}
