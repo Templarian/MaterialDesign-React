@@ -1,28 +1,27 @@
-var path = require('path');
+const path = require("path");
+
 module.exports = {
-  mode: 'production',
-  entry: './src/Icon.js',
+  mode: "production",
+  entry: "./src/Icon.tsx",
   output: {
     path: path.resolve(__dirname),
-    filename: 'Icon.js',
-    libraryTarget: 'commonjs2'
+    filename: "Icon.js",
+    libraryTarget: "commonjs2"
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
-        test: /\.js$/,
-        include: path.resolve(__dirname, 'src'),
-        exclude: /(node_modules|bower_components|build)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
-        }
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/
       }
     ]
   },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"]
+  },
   externals: {
-    'react': 'commonjs react'
+    react: "commonjs react"
   }
 };
