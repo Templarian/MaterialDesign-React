@@ -15,7 +15,7 @@ interface IconProps {
 const Icon: SFC<IconProps> = ({
   path,
   size = 1,
-  color = "",
+  color = '',
   horizontal = false,
   vertical = false,
   rotate = 0,
@@ -71,6 +71,15 @@ Icon.propTypes = {
     PropTypes.bool,
     PropTypes.number
   ])
-} as ValidationMap<IconProps>
+} as ValidationMap<IconProps>;
+
+Icon.defaultProps = {
+  size: 1,
+  color: '',
+  horizontal: false,
+  vertical: false,
+  rotate: 0,
+  spin: 1
+};
 
 export default Icon;
