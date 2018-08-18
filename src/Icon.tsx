@@ -1,24 +1,25 @@
 import * as React from "react";
-import { SFC } from "react";
+import { SFC, ValidationMap } from "react";
+import * as PropTypes from "prop-types";
 
 interface IconProps {
   path: string;
+  size?: number | string;
   color?: string;
   horizontal?: boolean;
-  rotate?: number;
-  size?: number | string;
-  spin?: boolean | number;
   vertical?: boolean;
+  rotate?: number;
+  spin?: boolean | number;
 }
 
 const Icon: SFC<IconProps> = ({
   path,
+  size = 1,
   color = "",
   horizontal = false,
+  vertical = false,
   rotate = 0,
-  size = 1,
-  spin = false,
-  vertical = false
+  spin = false
 }) => {
   const width = typeof size === "string" ? size : `${size * 1.5}rem`;
 
@@ -55,5 +56,21 @@ const Icon: SFC<IconProps> = ({
     </svg>
   );
 };
+
+Icon.propTypes = {
+  path: PropTypes.string.isRequired,
+  size: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]),
+  color: PropTypes.string,
+  horizontal: PropTypes.bool,
+  vertical: PropTypes.bool,
+  rotate: PropTypes.number,
+  spin: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.number
+  ])
+} as ValidationMap<IconProps>
 
 export default Icon;

@@ -1,12 +1,12 @@
 import { SFC } from "react";
 interface IconProps {
     path: string;
+    size?: number | string;
     color?: string;
     horizontal?: boolean;
-    rotate?: number;
-    size?: number | string;
-    spin?: boolean | number;
     vertical?: boolean;
+    rotate?: number;
+    spin?: boolean | number;
 }
 declare const Icon: SFC<IconProps>;
 export default Icon;
