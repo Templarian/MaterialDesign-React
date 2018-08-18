@@ -5,6 +5,8 @@
   "main": "Icon.js",
   "types": "lib/Icon.d.ts",
   "files": [
+    "lib/Icon.d.ts",
+    "Icon.js.map",
     "README.md"
   ],
   "scripts": {
