@@ -3,6 +3,7 @@
   "version": "0.8.1",
   "description": "React Dist for Material Design Icons",
   "main": "Icon.js",
+  "types": "lib/Icon.d.ts",
   "files": [
     "README.md"
   ],
