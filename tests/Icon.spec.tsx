@@ -139,3 +139,11 @@ describe("<Icon path={path} spin />", () => {
     expect(transformOrigin).to.equal('center');
   });
 });
+
+describe("<Icon path={path} horizontal vertical rotate={90} />", () => {
+  it("verify horizontal: boolean", () => {
+    const wrapper = shallow(<Icon path={path} horizontal vertical rotate={90} />);
+    const { transform } = wrapper.props().style;
+    expect(transform).to.equal('scaleX(-1) scaleY(-1) rotate(90deg)');
+  });
+});
