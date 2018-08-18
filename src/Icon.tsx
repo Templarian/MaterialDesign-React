@@ -1,4 +1,5 @@
 import * as React from "react";
+import { SFC } from "react";
 
 interface IconProps {
   path: string;
@@ -10,7 +11,7 @@ interface IconProps {
   vertical?: boolean;
 }
 
-const Icon: React.SFC<IconProps> = ({
+const Icon: SFC<IconProps> = ({
   path,
   color = "",
   horizontal = false,
