@@ -1,4 +1,4 @@
-import React, { SFC } from "react";
+import * as React from "react";
 
 interface IconProps {
   path: string;
@@ -10,7 +10,7 @@ interface IconProps {
   vertical?: boolean;
 }
 
-const Icon: SFC<IconProps> = ({
+const Icon: React.SFC<IconProps> = ({
   path,
   color = "",
   horizontal = false,
@@ -42,8 +42,7 @@ const Icon: SFC<IconProps> = ({
         transform: transform.join(" "),
         animation: spin ? `spin linear ${spinSec}s infinite` : "",
         transformOrigin: spin ? "center" : ""
-      }}
-    >
+      }}>
       {spin && (
         <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
       )}
@@ -51,8 +50,7 @@ const Icon: SFC<IconProps> = ({
         d={path}
         style={{
           fill: color
-        }}
-      />
+        }} />
     </svg>
   );
 };

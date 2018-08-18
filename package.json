@@ -7,10 +7,12 @@
     "README.md"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha -r ts-node/register tests/**/*.spec.tsx",
+    "testWithCoverage": "nyc -r lcov -e .ts -x \"*.test.tsx?\" mocha -r ts-node/register tests/**/*.test.tsx? && nyc report",
     "start": "webpack --watch",
     "build": "webpack"
   },
+  "setupFiles": ["<rootDir>/src/setupTests.ts"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Templarian/MaterialDesign-React.git"
@@ -28,16 +30,23 @@
   },
   "homepage": "https://github.com/Templarian/MaterialDesign-React#readme",
   "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/enzyme": "^3.1.13",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/mocha": "^5.2.5",
     "@types/react": "^16.4.11",
     "@types/react-dom": "^16.0.7",
-    "prettier": "^1.14.2",
+    "chai": "^4.1.2",
+    "enzyme": "^3.4.4",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "ts-loader": "^4.4.2",
+    "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
-    "tslint-config-prettier": "^1.14.0",
-    "tslint-plugin-prettier": "^1.3.0",
     "typescript": "^3.0.1",
     "webpack": "^4.16.5",
     "webpack-command": "^0.4.1"

@@ -1,6 +1,5 @@
 {
-  "extends": ["tslint-config-airbnb", "tslint-config-prettier"],
-  "rulesDirectory": ["tslint-plugin-prettier"],
+  "extends": ["tslint-config-airbnb"],
   "rules": {
     "prettier": [true],
     "variable-name": [
