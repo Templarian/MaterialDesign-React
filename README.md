@@ -1,12 +1,14 @@
 # React - Material Design Icons
 
-Material Design Icons can be used in React with a custom component or with the one provided in this module.
+[Material Design Icons](https://materialdesignicons.com/) can be used in React with a custom component or with the one provided in this module.
 
 ```
 npm install @mdi/react --save-dev
 ```
 
-## Props
+## Usage
+
+The example below uses the `@mdi/js` package which contains all the MDI icon's path data.
 
 ```javascript
 import React, { Component } from 'react'
@@ -21,12 +23,13 @@ class App extends Component {
         horizontal
         vertical
         rotate={90}
-        color="red"
-        spin/>
+        color="red"/>
     )
   }
 } 
 ```
+
+> **Note:** Do not use `spin` and `rotate` together.
 
 ## Props
 
