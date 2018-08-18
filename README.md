@@ -42,3 +42,17 @@ class App extends Component {
 | rotate     | number         | `0 `     | degrees `0` to `360` |
 | color      | string         | `#000`   | `rgb()` / `rgba()` / `#000` |
 | spin       | bool, number   | `false`  | `true = 2s`, `{spin}s` |
+
+
+## Development
+
+To develop clone the repo and run `npm install`.
+
+- `src/Icon.tsx` - Component
+- `tests/Icon.spec.tsx` - Unit tests
+
+Commands:
+
+- `npm run start` - Watch for file changes
+- `npm run build` - Build Icon.js
+- `npm run test` - Run unit tests
