@@ -79,7 +79,7 @@ Icon.defaultProps = {
   horizontal: false,
   vertical: false,
   rotate: 0,
-  spin: 1
+  spin: false
 };
 
 export default Icon;
