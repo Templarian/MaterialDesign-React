@@ -25,6 +25,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"]
   },
   externals: {
-    react: "commonjs react"
+    react: "commonjs react",
+    "prop-types": "commonjs prop-types"
   }
 };
