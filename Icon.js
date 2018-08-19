@@ -933,9 +933,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 
 
-const Icon = ({ path, size = 1, color = '', horizontal = false, vertical = false, rotate = 0, spin = false }) => {
-    const width = typeof size === "string" ? size : `${size * 1.5}rem`;
-    const transform = [];
+var Icon = function (_a) {
+    var path = _a.path, _b = _a.size, size = _b === void 0 ? 1 : _b, _c = _a.color, color = _c === void 0 ? '' : _c, _d = _a.horizontal, horizontal = _d === void 0 ? false : _d, _e = _a.vertical, vertical = _e === void 0 ? false : _e, _f = _a.rotate, rotate = _f === void 0 ? 0 : _f, _g = _a.spin, spin = _g === void 0 ? false : _g;
+    var width = typeof size === "string" ? size : size * 1.5 + "rem";
+    var transform = [];
     if (horizontal) {
         transform.push("scaleX(-1)");
     }
@@ -943,13 +944,13 @@ const Icon = ({ path, size = 1, color = '', horizontal = false, vertical = false
         transform.push("scaleY(-1)");
     }
     if (rotate !== 0) {
-        transform.push(`rotate(${rotate}deg)`);
+        transform.push("rotate(" + rotate + "deg)");
     }
-    const spinSec = spin === true || typeof spin !== "number" ? 2 : spin;
+    var spinSec = spin === true || typeof spin !== "number" ? 2 : spin;
     return (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", { viewBox: "0 0 24 24", style: {
-            width,
+            width: width,
             transform: transform.join(" "),
-            animation: spin ? `spin linear ${spinSec}s infinite` : "",
+            animation: spin ? "spin linear " + spinSec + "s infinite" : "",
             transformOrigin: spin ? "center" : ""
         } },
         spin && (react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("style", null, "@keyframes spin { to { transform: rotate(360deg) } }")),
