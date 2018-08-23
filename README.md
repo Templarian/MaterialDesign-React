@@ -62,4 +62,5 @@ Commands:
 [NPM @MDI Organization](https://npmjs.com/org/mdi)
 
 - JavaScript/Typescript: [MaterialDesign-JS](https://github.com/Templarian/MaterialDesign-JS)
+- Vue: [MaterialDesign-Vue](https://github.com/Templarian/MaterialDesign-Vue)
 - Webfont: [MaterialDesign-Webfont](https://github.com/Templarian/MaterialDesign-Webfont)
