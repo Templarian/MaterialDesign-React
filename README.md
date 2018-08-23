@@ -56,3 +56,10 @@ Commands:
 - `npm run start` - Watch for file changes
 - `npm run build` - Build Icon.js
 - `npm run test` - Run unit tests
+
+## Related Packages
+
+[NPM @MDI Organization](https://npmjs.com/org/mdi)
+
+- JavaScript/Typescript: [MaterialDesign-JS](https://github.com/Templarian/MaterialDesign-JS)
+- Webfont: [MaterialDesign-Webfont](https://github.com/Templarian/MaterialDesign-Webfont)
