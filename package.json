@@ -29,6 +29,9 @@
     "React"
   ],
   "author": "Austin Andrews",
+  "contributors": [
+    "Anton Zdanov <azdanov@pm.me> (https://azdanov.js.org/)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Templarian/MaterialDesign-React/issues"
