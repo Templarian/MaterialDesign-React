@@ -31,7 +31,31 @@ class App extends Component {
 
 > **Note:** Do not use `spin` and `rotate` together.
 
+## Stack Usage
+
+Now you can 
+
+```javascript
+import React, { Component } from 'react'
+import Icon, { Stack } from '@mdi/react'
+import { mdiAccount, mdiBlockHelper } from '@mdi/js'
+
+class App extends Component {
+  render() {
+    return (
+      <Stack color="#444">
+        <Icon path={mdiAccount}/>
+        <Icon path={mdiBlockHelper}
+          color="red"/>
+      </Stack>
+    )
+  }
+} 
+```
+
 ## Props
+
+### Icon `<Icon/>`
 
 | Prop       | PropTypes      | Default  | Details |
 |------------|----------------|----------|---------|
@@ -43,6 +67,18 @@ class App extends Component {
 | color      | string         | `#000`   | `rgb()` / `rgba()` / `#000` |
 | spin       | bool, number   | `false`  | `true = 2s`, `{spin}s` |
 
+### Stack `<Stack>`
+
+All `<Icon/>` components nested in a `<Stack/>` will override the defaults.
+
+| Prop       | PropTypes            | Default  | Details |
+|------------|----------------------|----------|---------|
+| size       | number, string, null | `null`   | `{size * 1.5}rem` |
+| horizontal | bool, null           | `null`   | Flip Horizontal |
+| vertical   | bool, null           | `null`   | Flip Vertical |
+| rotate     | number, null         | `null`   | degrees `0` to `360` |
+| color      | string, null         | `null`   | `rgb()` / `rgba()` / `#000` |
+| spin       | bool, number, null   | `null`   | `true = 2s`, `{spin}s` |
 
 ## Development
 
