@@ -1,12 +1,13 @@
 import { SFC, ReactElement } from "react";
 interface IconProps {
     path: string;
-    size?: number | string;
+    size?: number | string | null;
     color?: string;
     horizontal?: boolean;
     vertical?: boolean;
     rotate?: number;
     spin?: boolean | number;
+    inStack?: boolean;
 }
 export declare const Icon: SFC<IconProps>;
 interface StackPropsBase {

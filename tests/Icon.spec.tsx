@@ -1,9 +1,17 @@
 import * as React from "react";
 import { expect } from "chai";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { configure } from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
-import Icon from "../src/Icon";
+import Icon, { Stack } from "../src/Icon";
+
+// const doc = new JSDOM('<!doctype html><html><body></body></html>');
+// declare var global: any;
+// global.document = doc;
+// global.window = doc.window;
+// global.navigator = {
+//   userAgent: 'node.js',
+// };
 
 configure({ adapter: new Adapter() });
 
@@ -23,7 +31,7 @@ describe("<Icon path={path} />", () => {
     const { viewBox } = wrapper.props();
     expect(viewBox).to.equal('0 0 24 24');
   });
-  it("verify svg.style (width=1.5rem, transform='', animation='', transformOrigin='')", () => {
+  it("verify svg.style (width='', transform='', animation='', transformOrigin='')", () => {
     const wrapper = shallow(<Icon path={path} />);
     const {
       width,
@@ -31,10 +39,10 @@ describe("<Icon path={path} />", () => {
       animation,
       transformOrigin,
     } = wrapper.props().style;
-    expect(width).to.equal('1.5rem');
-    expect(transform).to.equal('');
-    expect(animation).to.equal('');
-    expect(transformOrigin).to.equal('');
+    expect(width).to.equal(undefined);
+    expect(transform).to.equal(undefined);
+    expect(animation).to.equal(undefined);
+    expect(transformOrigin).to.equal(undefined);
   });
   it("verify svg > path[d]", () => {
     const wrapper = shallow(<Icon path={path} />);
@@ -75,7 +83,7 @@ describe("<Icon path={path} horizontal />", () => {
   it("verify horizontal: boolean = false", () => {
     const wrapper = shallow(<Icon path={path} horizontal={false} />);
     const { transform } = wrapper.props().style;
-    expect(transform).to.equal('');
+    expect(transform).to.equal(undefined);
   });
 });
 
@@ -93,7 +101,7 @@ describe("<Icon path={path} vertical />", () => {
   it("verify vertical: boolean = false", () => {
     const wrapper = shallow(<Icon path={path} vertical={false} />);
     const { transform } = wrapper.props().style;
-    expect(transform).to.equal('');
+    expect(transform).to.equal(undefined);
   });
 });
 
@@ -129,8 +137,8 @@ describe("<Icon path={path} spin />", () => {
   it("verify spin: boolean = {false}", () => {
     const wrapper = shallow(<Icon path={path} spin={false} />);
     const { animation, transformOrigin } = wrapper.props().style;
-    expect(animation).to.equal('');
-    expect(transformOrigin).to.equal('');
+    expect(animation).to.equal(undefined);
+    expect(transformOrigin).to.equal(undefined);
   });
   it("verify spin: number = {3}", () => {
     const wrapper = shallow(<Icon path={path} spin={3} />);
@@ -145,5 +153,15 @@ describe("<Icon path={path} horizontal vertical rotate={90} />", () => {
     const wrapper = shallow(<Icon path={path} horizontal vertical rotate={90} />);
     const { transform } = wrapper.props().style;
     expect(transform).to.equal('scaleX(-1) scaleY(-1) rotate(90deg)');
+  });
+});
+
+describe("<Stack><Icon path={path} /></Stack> Renders", () => {
+  it("verify svg > path", () => {
+    const wrapper = mount(<Stack><Icon path={path} /></Stack>);
+    const svg = wrapper.childAt(0);
+    expect(svg.type()).to.equal('svg');
+    console.dir(wrapper.children())
+    expect(svg.childAt(0).type()).to.equal('path');
   });
 });

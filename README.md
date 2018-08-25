@@ -67,7 +67,7 @@ class App extends Component {
 | color      | string         | `#000`   | `rgb()` / `rgba()` / `#000` |
 | spin       | bool, number   | `false`  | `true = 2s`, `{spin}s` |
 
-### Stack `<Stack>`
+### Stack `<Stack/>`
 
 All `<Icon/>` components nested in a `<Stack/>` will override the defaults.
 

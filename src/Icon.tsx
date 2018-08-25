@@ -4,12 +4,13 @@ import * as PropTypes from "prop-types";
 
 interface IconProps {
   path: string;
-  size?: number | string;
+  size?: number | string | null;
   color?: string;
   horizontal?: boolean;
   vertical?: boolean;
   rotate?: number;
   spin?: boolean | number;
+  inStack?: boolean;
 }
 
 export const Icon: SFC<IconProps> = ({
@@ -19,13 +20,16 @@ export const Icon: SFC<IconProps> = ({
   horizontal = false,
   vertical = false,
   rotate = 0,
-  spin = false
+  spin = false,
+  inStack = false
 }) => {
-  const width = size === null
-    ? null
-    : typeof size === "string"
+  console.log(inStack);
+  const style: any = {}
+  if (size !== null) {
+    style.width = typeof size === "string"
       ? size
       : `${size * 1.5}rem`;
+  }
 
   const transform = [];
   if (horizontal) {
@@ -37,18 +41,27 @@ export const Icon: SFC<IconProps> = ({
   if (rotate !== 0) {
     transform.push(`rotate(${rotate}deg)`);
   }
+  if (transform.length > 0) {
+    style.transform = transform.join(' ');
+  }
+  if (spin) {
+    const spinSec = spin === true || typeof spin !== 'number' ? 2 : spin;
+    style.animation = `spin linear ${spinSec}s infinite`;
+    style.transformOrigin = 'center';
+  }
 
-  const spinSec = spin === true || typeof spin !== "number" ? 2 : spin;
-
-  return (
+  return inStack
+  ? (
+    <path
+      d={path}
+      style={{
+        fill: color
+      }} />
+  )
+  : (
     <svg
       viewBox="0 0 24 24"
-      style={{
-        width,
-        transform: transform.join(" "),
-        animation: spin ? `spin linear ${spinSec}s infinite` : "",
-        transformOrigin: spin ? "center" : ""
-      }}>
+      style={style}>
       {spin && (
         <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
       )}
@@ -75,11 +88,11 @@ Icon.propTypes = {
     PropTypes.bool,
     PropTypes.number
   ]),
-  stack: PropTypes.object
+  inStack: PropTypes.bool
 } as ValidationMap<IconProps>;
 
 Icon.defaultProps = {
-  size: 1,
+  size: null,
   color: '',
   horizontal: false,
   vertical: false,
@@ -113,11 +126,12 @@ export const Stack: SFC<StackProps> = ({
   const childrenWithProps = React.Children.map(children, (child) => {
     const childElement = child as ReactElement<IconProps>;
     console.log(childElement.props);
-    return React.cloneElement(childElement, { });
+    return React.cloneElement(childElement, { inStack: true });
   });
 
   return (
-    <svg>
+    <svg
+      viewBox="0 0 24 24">
       {childrenWithProps}
     </svg>
   );
