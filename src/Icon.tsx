@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SFC, ValidationMap } from "react";
+import { SFC, ValidationMap, ReactElement } from "react";
 import * as PropTypes from "prop-types";
 
 interface IconProps {
@@ -12,16 +12,20 @@ interface IconProps {
   spin?: boolean | number;
 }
 
-const Icon: SFC<IconProps> = ({
+export const Icon: SFC<IconProps> = ({
   path,
-  size = 1,
+  size = null,
   color = '',
   horizontal = false,
   vertical = false,
   rotate = 0,
   spin = false
 }) => {
-  const width = typeof size === "string" ? size : `${size * 1.5}rem`;
+  const width = size === null
+    ? null
+    : typeof size === "string"
+      ? size
+      : `${size * 1.5}rem`;
 
   const transform = [];
   if (horizontal) {
@@ -70,7 +74,8 @@ Icon.propTypes = {
   spin: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.number
-  ])
+  ]),
+  stack: PropTypes.object
 } as ValidationMap<IconProps>;
 
 Icon.defaultProps = {
@@ -80,6 +85,42 @@ Icon.defaultProps = {
   vertical: false,
   rotate: 0,
   spin: false
+};
+
+interface StackPropsBase {
+  size?: number | string | null;
+  color?: string | null;
+  horizontal?: boolean | null;
+  vertical?: boolean | null;
+  rotate?: number | null;
+  spin?: boolean | number | null;
+}
+
+interface StackProps extends StackPropsBase {
+  children: ReactElement<IconProps>[] | ReactElement<IconProps>;
+}
+
+export const Stack: SFC<StackProps> = ({
+  size = null,
+  color = null,
+  horizontal = null,
+  vertical = null,
+  rotate = null,
+  spin = null,
+  children
+}) => {
+  console.log(size, color, horizontal, vertical, rotate, spin);
+  const childrenWithProps = React.Children.map(children, (child) => {
+    const childElement = child as ReactElement<IconProps>;
+    console.log(childElement.props);
+    return React.cloneElement(childElement, { });
+  });
+
+  return (
+    <svg>
+      {childrenWithProps}
+    </svg>
+  );
 };
 
 export default Icon;

@@ -13,11 +13,9 @@
     "test": "mocha -r ts-node/register tests/**/*.spec.tsx",
     "testWithCoverage": "nyc -r lcov -e .ts -x \"*.test.tsx?\" mocha -r ts-node/register tests/**/*.test.tsx? && nyc report",
     "start": "webpack --watch",
-    "build": "webpack"
+    "build": "webpack",
+    "build2": "tsc -outFile dist/Icon2.js src/Icon.tsx"
   },
-  "setupFiles": [
-    "<rootDir>/src/setupTests.ts"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Templarian/MaterialDesign-React.git"
