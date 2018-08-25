@@ -33,7 +33,7 @@ class App extends Component {
 
 ## Stack Usage
 
-Now you can 
+To layer `<Icons/>` nest them inside of the `<Stack/>` component.
 
 ```javascript
 import React, { Component } from 'react'
