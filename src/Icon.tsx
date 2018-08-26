@@ -23,7 +23,6 @@ export const Icon: SFC<IconProps> = ({
   spin = false,
   inStack = false
 }) => {
-  console.log(inStack);
   const style: any = {}
   if (size !== null) {
     style.width = typeof size === "string"
@@ -74,6 +73,8 @@ export const Icon: SFC<IconProps> = ({
   );
 };
 
+Icon.displayName = 'Icon';
+
 Icon.propTypes = {
   path: PropTypes.string.isRequired,
   size: PropTypes.oneOfType([
@@ -122,10 +123,10 @@ export const Stack: SFC<StackProps> = ({
   spin = null,
   children
 }) => {
-  console.log(size, color, horizontal, vertical, rotate, spin);
+  //console.log(size, color, horizontal, vertical, rotate, spin);
   const childrenWithProps = React.Children.map(children, (child) => {
     const childElement = child as ReactElement<IconProps>;
-    console.log(childElement.props);
+    //console.log(childElement.props);
     return React.cloneElement(childElement, { inStack: true });
   });
 
@@ -136,5 +137,7 @@ export const Stack: SFC<StackProps> = ({
     </svg>
   );
 };
+
+Stack.displayName = 'Stack';
 
 export default Icon;

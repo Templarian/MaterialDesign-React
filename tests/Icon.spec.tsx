@@ -3,15 +3,7 @@ import { expect } from "chai";
 import { shallow, mount } from "enzyme";
 import { configure } from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
-import Icon, { Stack } from "../src/Icon";
-
-// const doc = new JSDOM('<!doctype html><html><body></body></html>');
-// declare var global: any;
-// global.document = doc;
-// global.window = doc.window;
-// global.navigator = {
-//   userAgent: 'node.js',
-// };
+import Icon from "../src/Icon";
 
 configure({ adapter: new Adapter() });
 
@@ -153,15 +145,5 @@ describe("<Icon path={path} horizontal vertical rotate={90} />", () => {
     const wrapper = shallow(<Icon path={path} horizontal vertical rotate={90} />);
     const { transform } = wrapper.props().style;
     expect(transform).to.equal('scaleX(-1) scaleY(-1) rotate(90deg)');
-  });
-});
-
-describe("<Stack><Icon path={path} /></Stack> Renders", () => {
-  it("verify svg > path", () => {
-    const wrapper = mount(<Stack><Icon path={path} /></Stack>);
-    const svg = wrapper.childAt(0);
-    expect(svg.type()).to.equal('svg');
-    console.dir(wrapper.children())
-    expect(svg.childAt(0).type()).to.equal('path');
   });
 });
