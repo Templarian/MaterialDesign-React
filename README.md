@@ -93,6 +93,8 @@ Commands:
 - `npm run build` - Build Icon.js
 - `npm run test` - Run unit tests
 
+> Note: This project is setup to use the [Mocha Sidebar](https://marketplace.visualstudio.com/items?itemName=maty.vscode-mocha-sidebar) extension which makes it easier to view the tests.
+
 ## Related Packages
 
 [NPM @MDI Organization](https://npmjs.com/org/mdi)
