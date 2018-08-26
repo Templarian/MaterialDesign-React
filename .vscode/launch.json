@@ -1,0 +1,16 @@
+{
+    "type": "node",
+    "request": "launch",
+    "name": "Mocha Current File",
+    "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+    "args": [
+      "--no-timeouts",
+      "--colors",
+      "${file}",
+      "--require",
+      "ts-node/register"
+    ],
+    "console": "integratedTerminal",
+    "sourceMaps": true,
+    "internalConsoleOptions": "neverOpen"
+}

@@ -1,0 +1,12 @@
+{
+    "editor.tabSize": 2,
+    "mocha.requires": [
+        "ts-node/register",
+        "jsdom-global/register"
+    ],
+    "mocha.files.glob": "tests/**/*.spec.tsx",
+    "mocha.env": {
+        "TS_NODE_COMPILER_OPTIONS": "{\"module\":\"commonjs\",\"jsx\":\"react\"}",
+        "TS_NODE_SKIP_PROJECT": "YES"
+    }
+}
