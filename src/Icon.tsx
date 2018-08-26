@@ -1,29 +1,22 @@
 import * as React from "react";
-import { SFC, ValidationMap, ReactElement } from "react";
+import { SFC, ValidationMap } from "react";
 import * as PropTypes from "prop-types";
+import { IconProps } from './IconProps'
 
-interface IconProps {
-  path: string;
-  size?: number | string | null;
-  color?: string;
-  horizontal?: boolean;
-  vertical?: boolean;
-  rotate?: number;
-  spin?: boolean | number;
-  inStack?: boolean;
-}
+export { default as Stack } from './Stack';
 
 export const Icon: SFC<IconProps> = ({
   path,
   size = null,
-  color = '',
+  color = null,
   horizontal = false,
   vertical = false,
   rotate = 0,
   spin = false,
   inStack = false
 }) => {
-  const style: any = {}
+  const style: any = {};
+  const pathStyle: any = {};
   if (size !== null) {
     style.width = typeof size === "string"
       ? size
@@ -48,14 +41,15 @@ export const Icon: SFC<IconProps> = ({
     style.animation = `spin linear ${spinSec}s infinite`;
     style.transformOrigin = 'center';
   }
+  if (color !== null) {
+    pathStyle.fill = color;
+  }
 
   return inStack
   ? (
     <path
       d={path}
-      style={{
-        fill: color
-      }} />
+      style={pathStyle} />
   )
   : (
     <svg
@@ -66,9 +60,7 @@ export const Icon: SFC<IconProps> = ({
       )}
       <path
         d={path}
-        style={{
-          fill: color
-        }} />
+        style={pathStyle} />
     </svg>
   );
 };
@@ -94,50 +86,11 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   size: null,
-  color: '',
+  color: null,
   horizontal: false,
   vertical: false,
   rotate: 0,
   spin: false
 };
-
-interface StackPropsBase {
-  size?: number | string | null;
-  color?: string | null;
-  horizontal?: boolean | null;
-  vertical?: boolean | null;
-  rotate?: number | null;
-  spin?: boolean | number | null;
-}
-
-interface StackProps extends StackPropsBase {
-  children: ReactElement<IconProps>[] | ReactElement<IconProps>;
-}
-
-export const Stack: SFC<StackProps> = ({
-  size = null,
-  color = null,
-  horizontal = null,
-  vertical = null,
-  rotate = null,
-  spin = null,
-  children
-}) => {
-  //console.log(size, color, horizontal, vertical, rotate, spin);
-  const childrenWithProps = React.Children.map(children, (child) => {
-    const childElement = child as ReactElement<IconProps>;
-    //console.log(childElement.props);
-    return React.cloneElement(childElement, { inStack: true });
-  });
-
-  return (
-    <svg
-      viewBox="0 0 24 24">
-      {childrenWithProps}
-    </svg>
-  );
-};
-
-Stack.displayName = 'Stack';
 
 export default Icon;

@@ -1,25 +1,5 @@
-import { SFC, ReactElement } from "react";
-interface IconProps {
-    path: string;
-    size?: number | string | null;
-    color?: string;
-    horizontal?: boolean;
-    vertical?: boolean;
-    rotate?: number;
-    spin?: boolean | number;
-    inStack?: boolean;
-}
+import { SFC } from "react";
+import { IconProps } from './IconProps';
+export { default as Stack } from './Stack';
 export declare const Icon: SFC<IconProps>;
-interface StackPropsBase {
-    size?: number | string | null;
-    color?: string | null;
-    horizontal?: boolean | null;
-    vertical?: boolean | null;
-    rotate?: number | null;
-    spin?: boolean | number | null;
-}
-interface StackProps extends StackPropsBase {
-    children: ReactElement<IconProps>[] | ReactElement<IconProps>;
-}
-export declare const Stack: SFC<StackProps>;
 export default Icon;

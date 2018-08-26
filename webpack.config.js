@@ -15,8 +15,7 @@ module.exports = {
         test: /\.tsx?$/,
         use: "ts-loader",
         exclude: [
-          /node_modules/,
-          "src/setupTests.ts"
+          /node_modules/
         ]
       }
     ]
@@ -25,7 +24,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"]
   },
   externals: {
-    react: "commonjs react",
+    "react": "commonjs react",
     "prop-types": "commonjs prop-types"
   }
 };

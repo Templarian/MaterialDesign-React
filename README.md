@@ -64,7 +64,7 @@ class App extends Component {
 | horizontal | bool           | `false ` | Flip Horizontal |
 | vertical   | bool           | `false`  | Flip Vertical |
 | rotate     | number         | `0 `     | degrees `0` to `360` |
-| color      | string         | `#000`   | `rgb()` / `rgba()` / `#000` |
+| color      | string         | `null`   | `rgb()` / `rgba()` / `#000` |
 | spin       | bool, number   | `false`  | `true = 2s`, `{spin}s` |
 
 ### Stack `<Stack/>`

@@ -44,7 +44,7 @@ describe("<Icon path={path} />", () => {
   it("verify svg > path.style.fill", () => {
     const wrapper = shallow(<Icon path={path} />);
     const { style } = wrapper.childAt(0).props();
-    expect(style.fill).to.equal('');
+    expect(style.fill).to.equal(undefined);
   });
 });
 
