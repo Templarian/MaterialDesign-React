@@ -84,8 +84,10 @@ All `<Icon/>` components nested in a `<Stack/>` will override the defaults.
 
 To develop clone the repo and run `npm install`.
 
-- `src/Icon.tsx` - Component
-- `tests/Icon.spec.tsx` - Unit tests
+- `src/Icon.tsx` - Icon Component
+  - `tests/Icon.spec.tsx` - Unit tests
+- `src/Stack.tsx` - Stack Component
+  - `tests/Stack.spec.tsx` - Unit tests
 
 Commands:
 
