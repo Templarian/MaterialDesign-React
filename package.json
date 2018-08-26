@@ -6,6 +6,9 @@
   "types": "dist/Icon.d.ts",
   "files": [
     "dist/Icon.d.ts",
+    "dist/IconProps.d.ts",
+    "dist/Stack.d.ts",
+    "dist/StackProps.d.ts",
     "Icon.js.map",
     "README.md"
   ],
