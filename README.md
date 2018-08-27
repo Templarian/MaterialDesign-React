@@ -71,7 +71,7 @@ class App extends Component {
 
 ### Stack `<Stack/>`
 
-All `<Icon/>` components nested in a `<Stack/>` will override the defaults.
+All props below will override the nested `<Icon/>`'s default prop values.
 
 | Prop       | PropTypes            | Default  | Details |
 |------------|----------------------|----------|---------|
