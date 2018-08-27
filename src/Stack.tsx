@@ -13,11 +13,18 @@ const Stack: SFC<StackProps> = ({
   spin = null,
   children
 }) => {
-  console.log(size, color, horizontal, vertical, rotate, spin);
   const childrenWithProps = React.Children.map(children, (child) => {
     const childElement = child as ReactElement<IconProps>;
-    //console.log(childElement.props);
-    return React.cloneElement(childElement, { inStack: true });
+    const props: Partial<IconProps> = {
+      size: size === null ? childElement.props.size : size,
+      color: color === null ? childElement.props.color : color,
+      horizontal: horizontal === null ? childElement.props.horizontal : horizontal,
+      vertical: vertical === null ? childElement.props.vertical : vertical,
+      rotate: rotate === null ? childElement.props.rotate : rotate,
+      spin: spin === null ? childElement.props.spin : spin,
+      inStack: true
+    };
+    return React.cloneElement(childElement, props);
   });
 
   return (
