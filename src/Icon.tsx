@@ -36,8 +36,8 @@ export const Icon: SFC<IconProps> = ({
   if (transform.length > 0) {
     style.transform = transform.join(' ');
   }
-  if (spin) {
-    const spinSec = spin === true || typeof spin !== 'number' ? 2 : spin;
+  const spinSec = spin === true || typeof spin !== 'number' ? 2 : spin;
+  if (!inStack && spin) {
     style.animation = `spin linear ${spinSec}s infinite`;
     style.transformOrigin = 'center';
   }
@@ -46,11 +46,24 @@ export const Icon: SFC<IconProps> = ({
   }
 
   return inStack
-  ? (
-    <path
-      d={path}
-      style={pathStyle} />
-  )
+  ? spin 
+    ? (
+      <g
+        style={{
+          animation: `spin linear ${spinSec}s infinite`,
+          transformOrigin: 'center'
+        }}>
+        <path
+          d={path}
+          style={pathStyle} />
+        <rect width="24" height="24" fill="transparent" />
+      </g>
+    )
+    : (
+      <path
+        d={path}
+        style={pathStyle} />
+    )
   : (
     <svg
       viewBox="0 0 24 24"

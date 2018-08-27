@@ -13,8 +13,12 @@ const Stack: SFC<StackProps> = ({
   spin = null,
   children
 }) => {
+  let anySpin = spin === null ? false : spin;
   const childrenWithProps = React.Children.map(children, (child) => {
     const childElement = child as ReactElement<IconProps>;
+    if (anySpin !== true) {
+      anySpin = (spin === null ? childElement.props.spin : spin) === true;
+    }
     const props: Partial<IconProps> = {
       size: size === null ? childElement.props.size : size,
       color: color === null ? childElement.props.color : color,
@@ -30,6 +34,9 @@ const Stack: SFC<StackProps> = ({
   return (
     <svg
       viewBox="0 0 24 24">
+      {anySpin && (
+        <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
+      )}
       {childrenWithProps}
     </svg>
   );
