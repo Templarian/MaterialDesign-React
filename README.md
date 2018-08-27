@@ -2,6 +2,8 @@
 
 [Material Design Icons](https://materialdesignicons.com/) can be used in React with a custom component or with the one provided in this module.
 
+[View the Demo](https://templarian.github.io/@mdi/react/)
+
 ```
 npm install @mdi/react --save-dev
 ```
