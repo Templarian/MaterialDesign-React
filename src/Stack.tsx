@@ -59,10 +59,10 @@ Stack.propTypes = {
 Stack.defaultProps = {
   size: null,
   color: null,
-  horizontal: false,
-  vertical: false,
-  rotate: 0,
-  spin: false
+  horizontal: null,
+  vertical: null,
+  rotate: null,
+  spin: null
 };
 
 export default Stack;
