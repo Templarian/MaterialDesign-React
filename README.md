@@ -13,9 +13,9 @@ npm install @mdi/react --save-dev
 The example below uses the `@mdi/js` package which contains all the MDI icon's path data.
 
 ```javascript
-import React, { Component } from 'react'
-import Icon from '@mdi/react'
-import { mdiAccount } from '@mdi/js'
+import React, { Component } from 'react';
+import Icon from '@mdi/react';
+import { mdiAccount } from '@mdi/js';
 
 class App extends Component {
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
         vertical
         rotate={90}
         color="red"/>
-    )
+    );
   }
 } 
 ```
@@ -38,9 +38,9 @@ class App extends Component {
 To layer `<Icons/>` nest them inside of the `<Stack/>` component.
 
 ```javascript
-import React, { Component } from 'react'
-import Icon, { Stack } from '@mdi/react'
-import { mdiAccount, mdiBlockHelper } from '@mdi/js'
+import React, { Component } from 'react';
+import Icon, { Stack } from '@mdi/react';
+import { mdiAccount, mdiBlockHelper } from '@mdi/js';
 
 class App extends Component {
   render() {
@@ -50,7 +50,7 @@ class App extends Component {
         <Icon path={mdiBlockHelper}
           color="red"/>
       </Stack>
-    )
+    );
   }
 } 
 ```

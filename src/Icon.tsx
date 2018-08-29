@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SFC, ValidationMap } from "react";
 import * as PropTypes from "prop-types";
-import { IconProps } from './IconProps'
+import { IconProps } from './IconProps';
 
 export { default as Stack } from './Stack';
 
