@@ -19,7 +19,7 @@ const Stack: SFC<StackProps> = ({
     if (anySpin !== true) {
       anySpin = (spin === null ? childElement.props.spin : spin) === true;
     }
-    let scaledSize = childElement.props.size
+    let scaledSize = childElement.props.size;
     if (typeof size === 'number' && typeof childElement.props.size === 'number') {
       scaledSize = childElement.props.size / size;
     }
