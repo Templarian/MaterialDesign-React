@@ -10,6 +10,7 @@ configure({ adapter: new Adapter() });
 const path = 'M0,0H24V24H0';
 
 describe("<Stack><Icon path={path} /></Stack> Renders", () => {
+
   it("verify default props", () => {
     const wrapper = mount(
       <Stack>
@@ -35,9 +36,11 @@ describe("<Stack><Icon path={path} /></Stack> Renders", () => {
     expect(iconComponent.prop('inStack')).to.equal(true);
     expect(iconEle.props().d).to.equal(path);
   });
+
 });
 
 describe("<Stack><Icon path={path} /></Stack> Inherited Props", () => {
+
   it("verify inherited props", () => {
     const wrapper = mount(
       <Stack
@@ -61,9 +64,11 @@ describe("<Stack><Icon path={path} /></Stack> Inherited Props", () => {
     expect(iconComponent.prop('rotate')).to.equal(45);
     expect(iconComponent.prop('spin')).to.equal(3);
   });
+
 });
 
 describe("<Stack><Icon path={path} /></Stack> Size", () => {
+
   it("verify dom has size", () => {
     const wrapper = mount(
       <Stack size={2}>
@@ -77,4 +82,5 @@ describe("<Stack><Icon path={path} /></Stack> Size", () => {
     console.log(stackEle.props());
     expect(stackEle.prop('style').width).to.equal('3rem');
   });
+  
 });
