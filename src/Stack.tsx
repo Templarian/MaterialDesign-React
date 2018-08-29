@@ -19,8 +19,12 @@ const Stack: SFC<StackProps> = ({
     if (anySpin !== true) {
       anySpin = (spin === null ? childElement.props.spin : spin) === true;
     }
+    let scaledSize = childElement.props.size
+    if (typeof size === 'number' && typeof childElement.props.size === 'number') {
+      scaledSize = childElement.props.size / size;
+    }
     const props: Partial<IconProps> = {
-      size: size === null ? childElement.props.size : size,
+      size: scaledSize,
       color: color === null ? childElement.props.color : color,
       horizontal: horizontal === null ? childElement.props.horizontal : horizontal,
       vertical: vertical === null ? childElement.props.vertical : vertical,
@@ -30,10 +34,16 @@ const Stack: SFC<StackProps> = ({
     };
     return React.cloneElement(childElement, props);
   });
-
+  const style: any = {};
+  if (size !== null) {
+    style.width = typeof size === "string"
+      ? size
+      : `${size * 1.5}rem`;
+  }
   return (
     <svg
-      viewBox="0 0 24 24">
+      viewBox="0 0 24 24"
+      style={style}>
       {anySpin && (
         <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
       )}

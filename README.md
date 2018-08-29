@@ -31,8 +31,6 @@ class App extends Component {
 } 
 ```
 
-> **Note:** Do not use `spin` and `rotate` together.
-
 ## Stack Usage
 
 To layer `<Icons/>` nest them inside of the `<Stack/>` component.

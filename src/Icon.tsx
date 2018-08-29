@@ -17,13 +17,16 @@ export const Icon: SFC<IconProps> = ({
 }) => {
   const style: any = {};
   const pathStyle: any = {};
-  if (size !== null) {
-    style.width = typeof size === "string"
-      ? size
-      : `${size * 1.5}rem`;
-  }
-
   const transform = [];
+  if (size !== null) {
+    if (inStack) {
+      transform.push(`scale(${size})`);
+    } else {
+      style.width = typeof size === "string"
+        ? size
+        : `${size * 1.5}rem`;
+    }
+  }
   if (horizontal) {
     transform.push("scaleX(-1)");
   }
@@ -33,47 +36,51 @@ export const Icon: SFC<IconProps> = ({
   if (rotate !== 0) {
     transform.push(`rotate(${rotate}deg)`);
   }
-  if (transform.length > 0) {
-    style.transform = transform.join(' ');
-  }
-  const spinSec = spin === true || typeof spin !== 'number' ? 2 : spin;
-  if (!inStack && spin) {
-    style.animation = `spin linear ${spinSec}s infinite`;
-    style.transformOrigin = 'center';
-  }
   if (color !== null) {
     pathStyle.fill = color;
   }
-
-  return inStack
-  ? spin 
-    ? (
-      <g
-        style={{
-          animation: `spin linear ${spinSec}s infinite`,
-          transformOrigin: 'center'
-        }}>
-        <path
-          d={path}
-          style={pathStyle} />
+  let pathElement = (
+    <path
+      d={path}
+      style={pathStyle} />
+  );
+  let transformElement = pathElement;
+  if (transform.length > 0) {
+    style.transform = transform.join(' ');
+    style.transformOrigin = 'center';
+    transformElement = (
+      <g style={style}>
+        {pathElement}
         <rect width="24" height="24" fill="transparent" />
       </g>
     )
-    : (
-      <path
-        d={path}
-        style={pathStyle} />
+  }
+  let spinElement = transformElement;
+  if (spin) {
+    const spinSec = spin === true || typeof spin !== 'number' ? 2 : spin;
+    spinElement = (
+      <g style={{
+          animation: `spin linear ${spinSec}s infinite`,
+          transformOrigin: 'center'
+        }}>
+        {transformElement}
+        {!(horizontal || vertical || rotate !== 0) && (
+          <rect width="24" height="24" fill="transparent" />
+        )}
+      </g>
     )
-  : (
+  }
+  if (inStack) {
+    return spinElement;
+  }
+  return (
     <svg
       viewBox="0 0 24 24"
       style={style}>
       {spin && (
         <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
       )}
-      <path
-        d={path}
-        style={pathStyle} />
+      {spinElement}
     </svg>
   );
 };

@@ -62,3 +62,19 @@ describe("<Stack><Icon path={path} /></Stack> Inherited Props", () => {
     expect(iconComponent.prop('spin')).to.equal(3);
   });
 });
+
+describe("<Stack><Icon path={path} /></Stack> Size", () => {
+  it("verify dom has size", () => {
+    const wrapper = mount(
+      <Stack size={2}>
+        <Icon path={path} />
+      </Stack>
+    );
+    const stackComponent = wrapper;
+    const stackEle = stackComponent.childAt(0);
+    const iconComponent = stackEle.childAt(0);
+    const iconEle = iconComponent.childAt(0);
+    console.log(stackEle.props());
+    expect(stackEle.prop('style').width).to.equal('3rem');
+  });
+});
