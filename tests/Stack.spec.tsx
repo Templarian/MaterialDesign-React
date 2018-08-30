@@ -56,13 +56,14 @@ describe("<Stack><Icon path={path} /></Stack> Inherited Props", () => {
     const stackComponent = wrapper;
     const stackEle = stackComponent.childAt(0);
     const iconComponent = stackEle.childAt(0);
-    const iconEle = iconComponent.childAt(0);
-    expect(iconComponent.prop('size')).to.equal(2);
-    expect(iconComponent.prop('color')).to.equal('red');
-    expect(iconComponent.prop('horizontal')).to.equal(true);
-    expect(iconComponent.prop('vertical')).to.equal(true);
-    expect(iconComponent.prop('rotate')).to.equal(45);
-    expect(iconComponent.prop('spin')).to.equal(3);
+    const gSpinEle = iconComponent.childAt(0);
+    const { animation, transformOrigin } = gSpinEle.props().style;
+    expect(animation).to.equal('spin linear 3s infinite');
+    expect(transformOrigin).to.equal('center');
+    const gTransformEle = gSpinEle.childAt(0);
+    const { transform, transformOrigin: transformOrigin2 } = gTransformEle.props().style;
+    expect(transform).to.equal('scaleX(-1) scaleY(-1) rotate(45deg)');
+    expect(transformOrigin2).to.equal('center');
   });
 
 });
@@ -79,8 +80,7 @@ describe("<Stack><Icon path={path} /></Stack> Size", () => {
     const stackEle = stackComponent.childAt(0);
     const iconComponent = stackEle.childAt(0);
     const iconEle = iconComponent.childAt(0);
-    console.log(stackEle.props());
     expect(stackEle.prop('style').width).to.equal('3rem');
   });
-  
+
 });
