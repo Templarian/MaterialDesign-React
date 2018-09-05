@@ -59,13 +59,15 @@ class App extends Component {
 
 | Prop       | PropTypes      | Default  | Details |
 |------------|----------------|----------|---------|
-| path       | string         | required | SVG path data. Usually from @mdi/js |
-| size       | number, string | `1`      | `{size * 1.5}rem` |
+| path       | string         | required | SVG path data. Usually from [@mdi/js](https://templarian.github.io/@mdi/js) |
+| size       | number, string | `null`   | `{size * 1.5}rem`, `1em`, `48px` |
 | horizontal | bool           | `false ` | Flip Horizontal |
 | vertical   | bool           | `false`  | Flip Vertical |
 | rotate     | number         | `0 `     | degrees `0` to `360` |
 | color      | string         | `null`   | `rgb()` / `rgba()` / `#000` |
 | spin       | bool, number   | `false`  | `true = 2s`, `{spin}s` |
+
+> Note: Additional props will be applied to the `<svg>` element.
 
 ### Stack `<Stack/>`
 
@@ -79,6 +81,33 @@ All props below will override the nested `<Icon/>`'s default prop values.
 | rotate     | number, null         | `null`   | degrees `0` to `360` |
 | color      | string, null         | `null`   | `rgb()` / `rgba()` / `#000` |
 | spin       | bool, number, null   | `null`   | `true = 2s`, `{spin}s` |
+
+> Note: Additional props on `<Stack>` will apply to the `<svg>` element. Only in a `<Stack>` will addional props to the `<Icon>` component apply to the nested `<path>` elements.
+
+
+## Styling
+
+Applying a `className` attribute is usually the easiest solution. The example below demonstrates using SCSS to style the icons.
+
+```scss
+// For <Icon className="custom-class" />
+svg.custom-class {
+  path {
+    fill
+  }
+}
+// For <Stack className="custom-class">
+svg.custom-class {
+  // First layer (behind)
+  path:nth-child(1) {
+    fill: blue;
+  }
+  // Second layer (infront)
+  path:nth-child(2) {
+    fill: red;
+  }
+}
+```
 
 ## Development
 
