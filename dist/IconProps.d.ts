@@ -1,4 +1,7 @@
-export interface IconProps {
+export interface HTMLProps {
+    className?: string;
+}
+export interface IconProps extends HTMLProps {
     path: string;
     size?: number | string | null;
     color?: string | null;

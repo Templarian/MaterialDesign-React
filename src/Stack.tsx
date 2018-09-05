@@ -11,7 +11,8 @@ const Stack: SFC<StackProps> = ({
   vertical = null,
   rotate = null,
   spin = null,
-  children
+  children,
+  ...rest
 }) => {
   let anySpin = spin === null ? false : spin;
   const childrenWithProps = React.Children.map(children, (child) => {
@@ -43,7 +44,8 @@ const Stack: SFC<StackProps> = ({
   return (
     <svg
       viewBox="0 0 24 24"
-      style={style}>
+      style={style}
+      {...rest}>
       {anySpin && (
         <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
       )}
@@ -70,7 +72,8 @@ Stack.propTypes = {
   children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-  ]).isRequired
+  ]).isRequired,
+  className: PropTypes.string
 } as ValidationMap<StackProps>;
 
 Stack.defaultProps = {
