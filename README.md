@@ -89,7 +89,7 @@ All props below will override the nested `<Icon/>`'s default prop values.
 
 Applying a `className` attribute is usually the easiest solution. The example below demonstrates using SCSS to style the icons.
 
-```scss
+```sass
 // For <Icon className="custom-class" />
 svg.custom-class {
   path {
