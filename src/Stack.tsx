@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SFC, ValidationMap, ReactElement } from "react";
+import { SFC, ValidationMap, ReactElement, CSSProperties } from "react";
 import * as PropTypes from "prop-types";
 import { StackProps } from './StackProps';
 import { IconProps } from './IconProps';
@@ -11,6 +11,7 @@ const Stack: SFC<StackProps> = ({
   vertical = null,
   rotate = null,
   spin = null,
+  style = {} as CSSProperties,
   children,
   ...rest
 }) => {
@@ -35,7 +36,6 @@ const Stack: SFC<StackProps> = ({
     };
     return React.cloneElement(childElement, props);
   });
-  const style: any = {};
   if (size !== null) {
     style.width = typeof size === "string"
       ? size
@@ -73,7 +73,8 @@ Stack.propTypes = {
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
   ]).isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
+  style: PropTypes.object
 } as ValidationMap<StackProps>;
 
 Stack.defaultProps = {

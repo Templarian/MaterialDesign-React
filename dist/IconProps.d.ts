@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 export interface HTMLProps {
     className?: string;
 }
@@ -9,5 +10,6 @@ export interface IconProps extends HTMLProps {
     vertical?: boolean;
     rotate?: number;
     spin?: boolean | number;
+    style?: CSSProperties;
     inStack?: boolean;
 }

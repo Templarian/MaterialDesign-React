@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, CSSProperties } from "react";
 import { IconProps, HTMLProps } from "./IconProps";
 
 export interface StackPropsBase {
@@ -8,6 +8,7 @@ export interface StackPropsBase {
   vertical?: boolean | null;
   rotate?: number | null;
   spin?: boolean | number | null;
+  style?: CSSProperties;
 }
 
 export interface StackProps extends StackPropsBase, HTMLProps {

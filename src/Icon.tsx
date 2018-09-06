@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SFC, ValidationMap } from "react";
+import { SFC, ValidationMap, CSSProperties } from "react";
 import * as PropTypes from "prop-types";
 import { IconProps } from './IconProps';
 
@@ -13,10 +13,10 @@ export const Icon: SFC<IconProps> = ({
   vertical = false,
   rotate = 0,
   spin = false,
+  style = {} as CSSProperties,
   inStack = false,
   ...rest
 }) => {
-  const style: any = {};
   const pathStyle: any = {};
   const transform = [];
   if (size !== null) {
@@ -104,6 +104,7 @@ Icon.propTypes = {
     PropTypes.bool,
     PropTypes.number
   ]),
+  style: PropTypes.object,
   inStack: PropTypes.bool,
   className: PropTypes.string
 } as ValidationMap<IconProps>;
