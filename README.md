@@ -89,6 +89,16 @@ All props below will override the nested `<Icon/>`'s default prop values.
 
 Applying a `className` attribute is usually the easiest solution. The example below demonstrates using SCSS to style the icons.
 
+In most cases it may be a good idea to set a base size. Assuming a `16px` base `font-size` in most themes applying `1.5rem` will make the icon a `24px`.
+
+```sass
+svg {
+  width: 1.5rem;
+}
+```
+
+For more specific styling apply classes. To make selection of layers easier use the `nth-child` selector.
+
 ```sass
 // For <Icon className="custom-class" />
 svg.custom-class {
