@@ -1,5 +1,5 @@
-import { ReactElement } from "react";
-import { IconProps } from "./IconProps";
+import { ReactElement, CSSProperties } from "react";
+import { IconProps, HTMLProps } from "./IconProps";
 
 export interface StackPropsBase {
   size?: number | string | null;
@@ -8,8 +8,9 @@ export interface StackPropsBase {
   vertical?: boolean | null;
   rotate?: number | null;
   spin?: boolean | number | null;
+  style?: CSSProperties;
 }
 
-export interface StackProps extends StackPropsBase {
+export interface StackProps extends StackPropsBase, HTMLProps {
   children: ReactElement<IconProps>[] | ReactElement<IconProps>;
 }

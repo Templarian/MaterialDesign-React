@@ -84,3 +84,21 @@ describe("<Stack><Icon path={path} /></Stack> Size", () => {
   });
 
 });
+
+describe("<Stack><Icon path={path} /></Stack> Props", () => {
+
+  it("verify additional props", () => {
+    const wrapper = mount(
+      <Stack size={2} className="foo">
+        <Icon path={path} className="bar" />
+      </Stack>
+    );
+    const stackComponent = wrapper;
+    const stackEle = stackComponent.childAt(0);
+    const iconComponent = stackEle.childAt(0);
+    const iconEle = iconComponent.childAt(0);
+    expect(stackEle.prop('className')).to.equal('foo');
+    expect(iconEle.prop('className')).to.equal('bar');
+  });
+
+});

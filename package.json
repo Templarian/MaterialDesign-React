@@ -1,6 +1,6 @@
 {
   "name": "@mdi/react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Dist for Material Design Icons",
   "main": "Icon.js",
   "types": "dist/Icon.d.ts",
@@ -48,6 +48,7 @@
     "@types/react-dom": "^16.0.7",
     "chai": "^4.1.2",
     "cross-env": "^5.2.0",
+    "csstype": "^2.5.6",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
     "jsdom": "^12.0.0",

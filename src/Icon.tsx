@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SFC, ValidationMap } from "react";
+import { SFC, ValidationMap, CSSProperties } from "react";
 import * as PropTypes from "prop-types";
 import { IconProps } from './IconProps';
 
@@ -13,9 +13,10 @@ export const Icon: SFC<IconProps> = ({
   vertical = false,
   rotate = 0,
   spin = false,
-  inStack = false
+  style = {} as CSSProperties,
+  inStack = false,
+  ...rest
 }) => {
-  const style: any = {};
   const pathStyle: any = {};
   const transform = [];
   if (size !== null) {
@@ -42,7 +43,8 @@ export const Icon: SFC<IconProps> = ({
   let pathElement = (
     <path
       d={path}
-      style={pathStyle} />
+      style={pathStyle}
+      {...(inStack ? rest : {})} />
   );
   let transformElement = pathElement;
   if (transform.length > 0) {
@@ -76,7 +78,8 @@ export const Icon: SFC<IconProps> = ({
   return (
     <svg
       viewBox="0 0 24 24"
-      style={style}>
+      style={style}
+      {...rest}>
       {spin && (
         <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
       )}
@@ -101,8 +104,11 @@ Icon.propTypes = {
     PropTypes.bool,
     PropTypes.number
   ]),
-  inStack: PropTypes.bool
+  style: PropTypes.object,
+  inStack: PropTypes.bool,
+  className: PropTypes.string
 } as ValidationMap<IconProps>;
+// https://github.com/DefinitelyTyped/DefinitelyTyped/issues/28249
 
 Icon.defaultProps = {
   size: null,

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SFC, ValidationMap, ReactElement } from "react";
+import { SFC, ValidationMap, ReactElement, CSSProperties } from "react";
 import * as PropTypes from "prop-types";
 import { StackProps } from './StackProps';
 import { IconProps } from './IconProps';
@@ -11,7 +11,9 @@ const Stack: SFC<StackProps> = ({
   vertical = null,
   rotate = null,
   spin = null,
-  children
+  style = {} as CSSProperties,
+  children,
+  ...rest
 }) => {
   let anySpin = spin === null ? false : spin;
   const childrenWithProps = React.Children.map(children, (child) => {
@@ -34,7 +36,6 @@ const Stack: SFC<StackProps> = ({
     };
     return React.cloneElement(childElement, props);
   });
-  const style: any = {};
   if (size !== null) {
     style.width = typeof size === "string"
       ? size
@@ -43,7 +44,8 @@ const Stack: SFC<StackProps> = ({
   return (
     <svg
       viewBox="0 0 24 24"
-      style={style}>
+      style={style}
+      {...rest}>
       {anySpin && (
         <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
       )}
@@ -70,7 +72,9 @@ Stack.propTypes = {
   children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-  ]).isRequired
+  ]).isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object
 } as ValidationMap<StackProps>;
 
 Stack.defaultProps = {

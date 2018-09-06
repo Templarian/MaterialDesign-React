@@ -185,3 +185,12 @@ describe("<Icon path={path} horizontal vertical rotate={90} />", () => {
   });
 
 });
+
+describe("<Icon path={path} className={'foo'} />", () => {
+
+  it("verify additional props", () => {
+    const svgElement = shallow(<Icon path={path} className={'foo'} />);
+    expect(svgElement.prop('className')).to.equal('foo');
+  });
+
+});
