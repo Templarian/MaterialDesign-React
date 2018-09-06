@@ -93,7 +93,7 @@ Applying a `className` attribute is usually the easiest solution. The example be
 // For <Icon className="custom-class" />
 svg.custom-class {
   path {
-    fill
+    fill: blue;
   }
 }
 // For <Stack className="custom-class">
