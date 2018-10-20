@@ -47,7 +47,10 @@ const Stack: SFC<StackProps> = ({
       style={style}
       {...rest}>
       {anySpin && (
-        <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
+        <style>
+          {"@keyframes spin { to { transform: rotate(360deg) } }"}
+          {"@keyframes spin-inverse { to { transform: rotate(-360deg) } }"}
+        </style>
       )}
       {childrenWithProps}
     </svg>

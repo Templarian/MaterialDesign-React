@@ -50,19 +50,23 @@ export const Icon: SFC<IconProps> = ({
   if (transform.length > 0) {
     style.transform = transform.join(' ');
     style.transformOrigin = 'center';
-    transformElement = (
-      <g style={style}>
-        {pathElement}
-        <rect width="24" height="24" fill="transparent" />
-      </g>
-    )
+    if (inStack) {
+      transformElement = (
+        <g style={style}>
+          {pathElement}
+          <rect width="24" height="24" fill="transparent" />
+        </g>
+      )
+    }
   }
   let spinElement = transformElement;
   if (spin) {
     const spinSec = spin === true || typeof spin !== 'number' ? 2 : spin;
+    let inverse = !inStack && (horizontal || vertical);
+    if (spinSec < 0) { inverse = !inverse }
     spinElement = (
       <g style={{
-          animation: `spin linear ${spinSec}s infinite`,
+          animation: `spin${inverse ? '-inverse' : ''} linear ${Math.abs(spinSec)}s infinite`,
           transformOrigin: 'center'
         }}>
         {transformElement}
@@ -80,8 +84,10 @@ export const Icon: SFC<IconProps> = ({
       viewBox="0 0 24 24"
       style={style}
       {...rest}>
-      {spin && (
-        <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
+      {!inStack && spin && (
+        horizontal || vertical
+          ? <style>{"@keyframes spin-inverse { to { transform: rotate(-360deg) } }"}</style>
+          : <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
       )}
       {spinElement}
     </svg>

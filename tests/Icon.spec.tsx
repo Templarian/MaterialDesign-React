@@ -178,9 +178,10 @@ describe("<Icon path={path} spin />", () => {
 
 describe("<Icon path={path} horizontal vertical rotate={90} />", () => {
 
-  it("verify horizontal: boolean", () => {
+  it("verify horizontal + vertical + rotate: boolean", () => {
     const svgElement = shallow(<Icon path={path} horizontal vertical rotate={90} />);
     const { transform } = svgElement.props().style;
+    console.log(svgElement.html());
     expect(transform).to.equal('scaleX(-1) scaleY(-1) rotate(90deg)');
   });
 

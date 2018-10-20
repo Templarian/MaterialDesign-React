@@ -65,7 +65,7 @@ class App extends Component {
 | vertical   | bool           | `false`  | Flip Vertical |
 | rotate     | number         | `0 `     | degrees `0` to `360` |
 | color      | string         | `null`   | `rgb()` / `rgba()` / `#000` |
-| spin       | bool, number   | `false`  | `true = 2s`, `{spin}s` |
+| spin       | bool, number   | `false`  | `true` = `2s`, `-2` counterclockwise, `{spin}s` |
 
 > Note: Additional props will be applied to the `<svg>` element.
 
@@ -80,7 +80,7 @@ All props below will override the nested `<Icon/>`'s default prop values.
 | vertical   | bool, null           | `null`   | Flip Vertical |
 | rotate     | number, null         | `null`   | degrees `0` to `360` |
 | color      | string, null         | `null`   | `rgb()` / `rgba()` / `#000` |
-| spin       | bool, number, null   | `null`   | `true = 2s`, `{spin}s` |
+| spin       | bool, number, null   | `null`   | `true` = `2s`, `-2` counterclockwise, `{spin}s` |
 
 > Note: Additional props on `<Stack>` will apply to the `<svg>` element. Only in a `<Stack>` will addional props to the `<Icon>` component apply to the nested `<path>` elements.
 
