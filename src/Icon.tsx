@@ -26,9 +26,7 @@ export const Icon: SFC<IconProps> = ({
       style.width = typeof size === "string"
         ? size
         : `${size * 1.5}rem`;
-      style.height = typeof size === "string"
-        ? size
-        : `${size * 1.5}rem`;
+      style.height = style.width;
     }
   }
   if (horizontal) {
