@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types";
 import { StackProps } from './StackProps';
 import { IconProps } from './IconProps';
 
-const Stack: SFC<StackProps> = ({
+const Stack: SFC<StackProps> = React.forwardRef<SVGSVGElement, StackProps>(({
   size = null,
   color = null,
   horizontal = null,
@@ -14,7 +14,7 @@ const Stack: SFC<StackProps> = ({
   style = {} as CSSProperties,
   children,
   ...rest
-}) => {
+}, ref) => {
   let anySpin = spin === null ? false : spin;
   const childrenWithProps = React.Children.map(children, (child) => {
     const childElement = child as ReactElement<IconProps>;
@@ -43,6 +43,7 @@ const Stack: SFC<StackProps> = ({
   }
   return (
     <svg
+      ref={ref}
       viewBox="0 0 24 24"
       style={style}
       {...rest}>
@@ -55,7 +56,7 @@ const Stack: SFC<StackProps> = ({
       {childrenWithProps}
     </svg>
   );
-};
+});
 
 Stack.displayName = 'Stack';
 

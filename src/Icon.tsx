@@ -5,7 +5,7 @@ import { IconProps } from './IconProps';
 
 export { default as Stack } from './Stack';
 
-export const Icon: SFC<IconProps> = ({
+export const Icon: SFC<IconProps> = React.forwardRef<SVGSVGElement, IconProps>(({
   path,
   size = null,
   color = null,
@@ -16,7 +16,7 @@ export const Icon: SFC<IconProps> = ({
   style = {} as CSSProperties,
   inStack = false,
   ...rest
-}) => {
+}, ref) => {
   const pathStyle: any = {};
   const transform = [];
   if (size !== null) {
@@ -82,6 +82,7 @@ export const Icon: SFC<IconProps> = ({
   }
   return (
     <svg
+      ref={ref}
       viewBox="0 0 24 24"
       style={style}
       {...rest}>
@@ -93,7 +94,7 @@ export const Icon: SFC<IconProps> = ({
       {spinElement}
     </svg>
   );
-};
+});
 
 Icon.displayName = 'Icon';
 
