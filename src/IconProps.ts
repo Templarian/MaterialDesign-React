@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, RefObject } from 'react'
 
 export interface HTMLProps {
   className?: string;
@@ -6,6 +6,7 @@ export interface HTMLProps {
 
 export interface IconProps extends HTMLProps {
   path: string;
+  ref?: RefObject<SVGSVGElement>;
   size?: number | string | null;
   color?: string | null;
   horizontal?: boolean;

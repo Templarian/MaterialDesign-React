@@ -1,6 +1,6 @@
 import * as React from "react";
 import { expect } from "chai";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { configure } from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 import Icon from "../src/Icon";
@@ -181,7 +181,6 @@ describe("<Icon path={path} horizontal vertical rotate={90} />", () => {
   it("verify horizontal + vertical + rotate: boolean", () => {
     const svgElement = shallow(<Icon path={path} horizontal vertical rotate={90} />);
     const { transform } = svgElement.props().style;
-    console.log(svgElement.html());
     expect(transform).to.equal('scaleX(-1) scaleY(-1) rotate(90deg)');
   });
 
@@ -195,3 +194,15 @@ describe("<Icon path={path} className={'foo'} />", () => {
   });
 
 });
+
+/*
+describe("<Icon ref={ref} />", () => {
+
+  it("verify ref works", () => {
+    const ref = React.createRef<SVGSVGElement>();
+    const wrapper = mount(<Icon ref={ref} path={path} />);
+    // todo: write a test?
+  });
+
+});
+*/
