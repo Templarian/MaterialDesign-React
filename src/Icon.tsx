@@ -87,12 +87,12 @@ export const Icon: SFC<IconProps> = React.forwardRef<SVGSVGElement, IconProps>((
   }
   let ariaLabelledby;
   let labelledById = `icon_labelledby_${id}`;
-  let describedById = ` icon_describedby_${id}`;
+  let describedById = `icon_describedby_${id}`;
   let role;
   if (title) {
     ariaLabelledby = description
-      ? labelledById
-      : `${labelledById} ${describedById}`;
+      ? `${labelledById} ${describedById}`
+      : labelledById;
   } else {
     role = 'presentation';
     if (description) {
