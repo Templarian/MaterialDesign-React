@@ -195,6 +195,31 @@ describe("<Icon path={path} className={'foo'} />", () => {
 
 });
 
+describe("<Icon /> A11y", () => {
+
+  it("no title sets role=presentation", () => {
+    const svgElement = shallow(<Icon path={path} />);
+    expect(svgElement.props().role).to.equal('presentation');
+  });
+
+  it("title does not role=presentation", () => {
+    const svgElement = shallow(<Icon path={path} title={'Box'} />);
+    expect(svgElement.props().role).not.to.equal('presentation');
+  });
+
+  it("title sets aria-labelledby", () => {
+    const svgElement = shallow(<Icon path={path} title={'Box'} />);
+    expect(svgElement.props().ariaLabelledby).not.to.equal('label1');
+  });
+
+  it("just description without title throws error", () => {
+    expect(() => {
+      shallow(<Icon path={path} description={'Box'} />);
+    }).to.throw();
+  });
+
+});
+
 /*
 describe("<Icon ref={ref} />", () => {
 

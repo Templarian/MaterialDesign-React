@@ -5,8 +5,12 @@ import { IconProps } from './IconProps';
 
 export { default as Stack } from './Stack';
 
+let id = 0;
+
 export const Icon: SFC<IconProps> = React.forwardRef<SVGSVGElement, IconProps>(({
   path,
+  title = null,
+  description = null,
   size = null,
   color = null,
   horizontal = false,
@@ -17,6 +21,7 @@ export const Icon: SFC<IconProps> = React.forwardRef<SVGSVGElement, IconProps>((
   inStack = false,
   ...rest
 }, ref) => {
+  id++;
   const pathStyle: any = {};
   const transform = [];
   if (size !== null) {
@@ -45,7 +50,7 @@ export const Icon: SFC<IconProps> = React.forwardRef<SVGSVGElement, IconProps>((
     <path
       d={path}
       style={pathStyle}
-      {...(inStack ? rest : {})} />
+      {...(inStack ? rest : {}) as any} />
   );
   let transformElement = pathElement;
   if (transform.length > 0) {
@@ -80,12 +85,30 @@ export const Icon: SFC<IconProps> = React.forwardRef<SVGSVGElement, IconProps>((
   if (inStack) {
     return spinElement;
   }
+  let ariaLabelledby;
+  let labelledById = `icon_labelledby_${id}`;
+  let describedById = ` icon_describedby_${id}`;
+  let role;
+  if (title) {
+    ariaLabelledby = description
+      ? labelledById
+      : `${labelledById} ${describedById}`;
+  } else {
+    role = 'presentation';
+    if (description) {
+      throw new Error("title attribute required when description is set");
+    }
+  }
   return (
     <svg
       ref={ref}
       viewBox="0 0 24 24"
       style={style}
+      role={role}
+      aria-labelledby={ariaLabelledby}
       {...rest}>
+      {title && <title id={labelledById}>{title}</title>}
+      {description && <desc id={describedById}>{description}</desc>}
       {!inStack && spin && (
         horizontal || vertical
           ? <style>{"@keyframes spin-inverse { to { transform: rotate(-360deg) } }"}</style>

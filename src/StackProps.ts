@@ -3,6 +3,8 @@ import { IconProps, HTMLProps } from "./IconProps";
 
 export interface StackPropsBase {
   ref?: RefObject<SVGSVGElement>;
+  title?: string | null;
+  description?: string | null;
   size?: number | string | null;
   color?: string | null;
   horizontal?: boolean | null;
