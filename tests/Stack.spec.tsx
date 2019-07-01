@@ -102,3 +102,63 @@ describe("<Stack><Icon path={path} /></Stack> Props", () => {
   });
 
 });
+
+describe("<Stack /> A11y", () => {
+
+  it("no title sets role=presentation", () => {
+    const wrapper = mount(
+      <Stack>
+        <Icon path={path} />
+      </Stack>
+    );
+    const stackComponent = wrapper;
+    const stackEle = stackComponent.childAt(0);
+    expect(stackEle.props().role).to.equal('presentation');
+  });
+
+  it("title does not role=presentation", () => {
+    const wrapper = mount(
+      <Stack title={'Foo'}>
+        <Icon path={path} />
+      </Stack>
+    );
+    const stackComponent = wrapper;
+    const stackEle = stackComponent.childAt(0);
+    expect(stackEle.props().role).not.to.equal('presentation');
+  });
+
+  it("title sets aria-labelledby", () => {
+    const wrapper = mount(
+      <Stack title={'Foo'}>
+        <Icon path={path} />
+      </Stack>
+    );
+    const stackComponent = wrapper;
+    const stackEle = stackComponent.childAt(0);
+    const ariaLabelledby = stackEle.prop('aria-labelledby').replace(/\d+/g, '');
+    expect(ariaLabelledby).to.equal('stack_labelledby_');
+  });
+
+  it("title and description sets aria-labelledby", () => {
+    const wrapper = mount(
+      <Stack title={'Foo'} description={'Bar'}>
+        <Icon path={path} />
+      </Stack>
+    );
+    const stackComponent = wrapper;
+    const stackEle = stackComponent.childAt(0);
+    const ariaLabelledby = stackEle.prop('aria-labelledby').replace(/\d+/g, '');
+    expect(ariaLabelledby).to.equal('stack_labelledby_ stack_describedby_');
+  });
+
+  it("just description without title throws error", () => {
+    expect(() => {
+      mount(
+        <Stack description={'Bar'}>
+          <Icon path={path} />
+        </Stack>
+      );
+    }).to.throw();
+  });
+
+});

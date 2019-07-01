@@ -4,7 +4,11 @@ import * as PropTypes from "prop-types";
 import { StackProps } from './StackProps';
 import { IconProps } from './IconProps';
 
+let id = 0;
+
 const Stack: SFC<StackProps> = React.forwardRef<SVGSVGElement, StackProps>(({
+  title = null,
+  description = null,
   size = null,
   color = null,
   horizontal = null,
@@ -15,6 +19,7 @@ const Stack: SFC<StackProps> = React.forwardRef<SVGSVGElement, StackProps>(({
   children,
   ...rest
 }, ref) => {
+  id++;
   let anySpin = spin === null ? false : spin;
   const childrenWithProps = React.Children.map(children, (child) => {
     const childElement = child as ReactElement<IconProps>;
@@ -41,12 +46,30 @@ const Stack: SFC<StackProps> = React.forwardRef<SVGSVGElement, StackProps>(({
       ? size
       : `${size * 1.5}rem`;
   }
+  let ariaLabelledby;
+  let labelledById = `stack_labelledby_${id}`;
+  let describedById = `stack_describedby_${id}`;
+  let role;
+  if (title) {
+    ariaLabelledby = description
+      ? `${labelledById} ${describedById}`
+      : labelledById;
+  } else {
+    role = 'presentation';
+    if (description) {
+      throw new Error("title attribute required when description is set");
+    }
+  }
   return (
     <svg
       ref={ref}
       viewBox="0 0 24 24"
       style={style}
+      role={role}
+      aria-labelledby={ariaLabelledby}
       {...rest}>
+      {title && <title id={labelledById}>{title}</title>}
+      {description && <desc id={describedById}>{description}</desc>}
       {anySpin && (
         <style>
           {"@keyframes spin { to { transform: rotate(360deg) } }"}
