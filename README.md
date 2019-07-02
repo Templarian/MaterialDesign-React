@@ -57,15 +57,17 @@ class App extends Component {
 
 ### Icon `<Icon/>`
 
-| Prop       | PropTypes      | Default  | Details |
-|------------|----------------|----------|---------|
-| path       | string         | required | SVG path data. Usually from [@mdi/js](https://templarian.github.io/@mdi/js) |
-| size       | number, string | `null`   | `{size * 1.5}rem`, `1em`, `48px` |
-| horizontal | bool           | `false ` | Flip Horizontal |
-| vertical   | bool           | `false`  | Flip Vertical |
-| rotate     | number         | `0 `     | degrees `0` to `360` |
-| color      | string         | `null`   | `rgb()` / `rgba()` / `#000` |
-| spin       | bool, number   | `false`  | `true` = `2s`, `-2` counterclockwise, `{spin}s` |
+| Prop        | PropTypes      | Default  | Details |
+|-------------|----------------|----------|---------|
+| title       | string, null   | `null`   | A11y `<title>{title}</title>` |
+| description | string, null   | `null`   | A11y `<desc>{desc}</desc>` |
+| path        | string         | required | SVG path data. Usually from [@mdi/js](https://templarian.github.io/@mdi/js) |
+| size        | number, string | `null`   | `{size * 1.5}rem`, `1em`, `48px` |
+| horizontal  | bool           | `false ` | Flip Horizontal |
+| vertical    | bool           | `false`  | Flip Vertical |
+| rotate      | number         | `0 `     | degrees `0` to `360` |
+| color       | string         | `null`   | `rgb()` / `rgba()` / `#000` |
+| spin        | bool, number   | `false`  | `true` = `2s`, `-2` counterclockwise, `{spin}s` |
 
 > Note: Additional props will be applied to the `<svg>` element.
 
@@ -73,14 +75,16 @@ class App extends Component {
 
 All props below will override the nested `<Icon/>`'s default prop values.
 
-| Prop       | PropTypes            | Default  | Details |
-|------------|----------------------|----------|---------|
-| size       | number, string, null | `null`   | `{size * 1.5}rem` |
-| horizontal | bool, null           | `null`   | Flip Horizontal |
-| vertical   | bool, null           | `null`   | Flip Vertical |
-| rotate     | number, null         | `null`   | degrees `0` to `360` |
-| color      | string, null         | `null`   | `rgb()` / `rgba()` / `#000` |
-| spin       | bool, number, null   | `null`   | `true` = `2s`, `-2` counterclockwise, `{spin}s` |
+| Prop        | PropTypes            | Default  | Details |
+|-------------|----------------------|----------|---------|
+| title       | string, null         | `null`   | A11y `<title>{title}</title>` |
+| description | string, null         | `null`   | A11y `<desc>{desc}</desc>` |
+| size        | number, string, null | `null`   | `{size * 1.5}rem` |
+| horizontal  | bool, null           | `null`   | Flip Horizontal |
+| vertical    | bool, null           | `null`   | Flip Vertical |
+| rotate      | number, null         | `null`   | degrees `0` to `360` |
+| color       | string, null         | `null`   | `rgb()` / `rgba()` / `#000` |
+| spin        | bool, number, null   | `null`   | `true` = `2s`, `-2` counterclockwise, `{spin}s` |
 
 > Note: Additional props on `<Stack>` will apply to the `<svg>` element. Only in a `<Stack>` will addional props to the `<Icon>` component apply to the nested `<path>` elements.
 
