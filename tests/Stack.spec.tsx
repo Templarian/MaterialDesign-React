@@ -151,14 +151,26 @@ describe("<Stack /> A11y", () => {
     expect(ariaLabelledby).to.equal('stack_labelledby_ stack_describedby_');
   });
 
-  it("just description without title throws error", () => {
-    expect(() => {
-      mount(
-        <Stack description={'Bar'}>
-          <Icon path={path} />
-        </Stack>
-      );
-    }).to.throw();
+  it("title sets title", () => {
+    const wrapper = mount(
+      <Stack title={'Foo'}>
+        <Icon path={path} />
+      </Stack>
+    );
+    const titleElement = wrapper.find('title');
+    expect(titleElement.text()).to.equal('Foo');
+  });
+
+  it("title and description sets title and desc", () => {
+    const wrapper = mount(
+      <Stack title={'Foo'} description={'Bar'}>
+        <Icon path={path} />
+      </Stack>
+    );
+    const titleElement = wrapper.find('title');
+    const descElement = wrapper.find('desc');
+    expect(titleElement.text()).to.equal('Foo');
+    expect(descElement.text()).to.equal('Bar');
   });
 
 });

@@ -189,8 +189,8 @@ describe("<Icon path={path} horizontal vertical rotate={90} />", () => {
 describe("<Icon path={path} className={'foo'} />", () => {
 
   it("verify additional props", () => {
-    const svgElement = shallow(<Icon path={path} className={'foo'} />);
-    expect(svgElement.prop('className')).to.equal('foo');
+    const svgElement = shallow(<Icon path={path} className={'Foo'} />);
+    expect(svgElement.prop('className')).to.equal('Foo');
   });
 
 });
@@ -214,15 +214,23 @@ describe("<Icon /> A11y", () => {
   });
 
   it("title and description sets aria-labelledby", () => {
-    const svgElement = shallow(<Icon path={path} title={'Foo'} description={'bar'} />);
+    const svgElement = shallow(<Icon path={path} title={'Foo'} description={'Bar'} />);
     const ariaLabelledby = svgElement.prop('aria-labelledby').replace(/\d+/g, '');
     expect(ariaLabelledby).to.equal('icon_labelledby_ icon_describedby_');
   });
 
-  it("just description without title throws error", () => {
-    expect(() => {
-      shallow(<Icon path={path} description={'Box'} />);
-    }).to.throw();
+  it("title sets title", () => {
+    const svgElement = shallow(<Icon path={path} title={'Foo'} />);
+    const titleElement = svgElement.find('title');
+    expect(titleElement.text()).to.equal('Foo');
+  });
+
+  it("title and description sets title and desc", () => {
+    const svgElement = shallow(<Icon path={path} title={'Foo'} description={'Bar'} />);
+    const titleElement = svgElement.find('title');
+    const descElement = svgElement.find('desc');
+    expect(titleElement.text()).to.equal('Foo');
+    expect(descElement.text()).to.equal('Bar');
   });
 
   it("just description without title throws error", () => {
