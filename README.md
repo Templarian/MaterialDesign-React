@@ -123,6 +123,18 @@ svg.custom-class {
 }
 ```
 
+## Accessibility
+
+Making icons accessible can be done through the `title` prop. If for some rare reason more information is required a `description` field can also be used.
+
+By leaving off the `title` prop an icon is assumed to be presentation only. These will be ignored by screen readers. This is ideal for icon buttons or areas where text next to the icon suffices.
+
+```js
+<p><Icon path={mdiAccount} /> User Profile</p>
+<p><Icon path={mdiAccount} title="User Profile" /></p>
+<button aria-label="User Profile"><Icon path={mdiAccount} /></button>
+```
+
 ## Development
 
 To develop clone the repo and run `npm install`.
