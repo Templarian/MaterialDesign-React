@@ -66,10 +66,10 @@ export const Icon: SFC<IconProps> = React.forwardRef<SVGSVGElement, IconProps>((
     }
   }
   let spinElement = transformElement;
+  const spinSec = spin === true || typeof spin !== 'number' ? 2 : spin;
+  let inverse = !inStack && (horizontal || vertical);
+  if (spinSec < 0) { inverse = !inverse }
   if (spin) {
-    const spinSec = spin === true || typeof spin !== 'number' ? 2 : spin;
-    let inverse = !inStack && (horizontal || vertical);
-    if (spinSec < 0) { inverse = !inverse }
     spinElement = (
       <g style={{
           animation: `spin${inverse ? '-inverse' : ''} linear ${Math.abs(spinSec)}s infinite`,
@@ -110,7 +110,7 @@ export const Icon: SFC<IconProps> = React.forwardRef<SVGSVGElement, IconProps>((
       {title && <title id={labelledById}>{title}</title>}
       {description && <desc id={describedById}>{description}</desc>}
       {!inStack && spin && (
-        horizontal || vertical
+        inverse
           ? <style>{"@keyframes spin-inverse { to { transform: rotate(-360deg) } }"}</style>
           : <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
       )}
