@@ -1,6 +1,6 @@
-import { CSSProperties, RefObject } from 'react'
+import { CSSProperties, RefObject, AriaAttributes } from 'react'
 
-export interface HTMLProps {
+export interface HTMLProps extends AriaAttributes {
   className?: string;
 }
 
