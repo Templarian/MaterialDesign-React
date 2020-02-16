@@ -1,6 +1,7 @@
-import { CSSProperties, RefObject } from 'react';
-export interface HTMLProps {
+import { AriaAttributes, CSSProperties, MouseEventHandler, RefObject } from 'react';
+export interface HTMLProps extends AriaAttributes {
     className?: string;
+    onClick?: MouseEventHandler;
 }
 export interface IconProps extends HTMLProps {
     path: string;

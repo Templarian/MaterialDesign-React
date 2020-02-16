@@ -1,6 +1,6 @@
 {
   "name": "@mdi/react",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "React Dist for Material Design Icons",
   "main": "Icon.js",
   "types": "dist/Icon.d.ts",
@@ -13,7 +13,7 @@
     "README.md"
   ],
   "scripts": {
-    "test": "cross-env TS_NODE_SKIP_PROJECT=YES TS_NODE_COMPILER_OPTIONS='{\\\"module\\\":\\\"commonjs\\\",\\\"jsx\\\":\\\"react\\\"}' mocha -r ts-node/register -r jsdom-global/register tests/**/*.spec.tsx",
+    "test": "cross-env TS_NODE_SKIP_PROJECT=YES TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\",\"jsx\":\"react\"}' mocha -r ts-node/register -r jsdom-global/register tests/**/*.spec.tsx",
     "testWithCoverage": "nyc -r lcov -e .ts -x \"*.test.tsx?\" mocha -r ts-node/register tests/**/*.test.tsx? && nyc report",
     "start": "webpack --watch",
     "build": "webpack",
