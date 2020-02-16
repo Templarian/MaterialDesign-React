@@ -4,6 +4,9 @@
   "description": "React Dist for Material Design Icons",
   "main": "Icon.js",
   "types": "dist/Icon.d.ts",
+  "engines": {
+    "node": ">=8.9"
+  },
   "files": [
     "dist/Icon.d.ts",
     "dist/IconProps.d.ts",
