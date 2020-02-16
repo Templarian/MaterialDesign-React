@@ -4,7 +4,7 @@
     "moduleResolution": "node",
     "declaration": true,
     "jsx": "react",
-    "module": "es6",
+    "module": "commonjs",
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

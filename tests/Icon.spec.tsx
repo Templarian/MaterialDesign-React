@@ -1,6 +1,6 @@
 import * as React from "react";
 import { expect } from "chai";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import { configure } from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 import Icon from "../src/Icon";
