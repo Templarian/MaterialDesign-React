@@ -1,12 +1,12 @@
 import * as React from "react";
-import { SFC, ValidationMap, ReactElement, CSSProperties } from "react";
+import { FunctionComponent, ValidationMap, ReactElement, CSSProperties } from "react";
 import * as PropTypes from "prop-types";
 import { StackProps } from './StackProps';
 import { IconProps } from './IconProps';
 
 let id = 0;
 
-const Stack: SFC<StackProps> = React.forwardRef<SVGSVGElement, StackProps>(({
+const Stack: FunctionComponent<StackProps> = React.forwardRef<SVGSVGElement, StackProps>(({
   title = null,
   description = null,
   size = null,

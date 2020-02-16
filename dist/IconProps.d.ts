@@ -1,5 +1,5 @@
-import { CSSProperties, RefObject } from 'react';
-export interface HTMLProps {
+import { CSSProperties, RefObject, AriaAttributes } from 'react';
+export interface HTMLProps extends AriaAttributes {
     className?: string;
 }
 export interface IconProps extends HTMLProps {
