@@ -143,7 +143,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   size: null,
-  color: null,
+  color: 'currentColor',
   horizontal: false,
   vertical: false,
   rotate: 0,

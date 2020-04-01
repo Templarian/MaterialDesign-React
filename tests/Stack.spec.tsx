@@ -28,7 +28,7 @@ describe("<Stack><Icon path={path} /></Stack> Renders", () => {
     expect(iconEle.type()).to.equal('path');
     expect(iconComponent.prop('path')).to.equal(path);
     expect(iconComponent.prop('size')).to.equal(null);
-    expect(iconComponent.prop('color')).to.equal(null);
+    expect(iconComponent.prop('color')).to.equal('currentColor');
     expect(iconComponent.prop('horizontal')).to.equal(false);
     expect(iconComponent.prop('vertical')).to.equal(false);
     expect(iconComponent.prop('rotate')).to.equal(0);

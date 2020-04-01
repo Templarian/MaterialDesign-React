@@ -49,7 +49,7 @@ describe("<Icon path={path} />", () => {
   it("verify svg > path.style.fill", () => {
     const svgElement = shallow(<Icon path={path} />);
     const { style } = svgElement.childAt(0).props();
-    expect(style.fill).to.equal(undefined);
+    expect(style.fill).to.equal('currentColor');
   });
 
 });
