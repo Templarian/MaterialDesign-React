@@ -38,6 +38,9 @@
     "url": "https://github.com/Templarian/MaterialDesign-React/issues"
   },
   "homepage": "https://github.com/Templarian/MaterialDesign-React#readme",
+  "dependencies" : {
+    "@mdi/js": "^5.1.45"
+  },
   "devDependencies": {
     "@types/chai": "^4.2.9",
     "@types/enzyme": "^3.10.5",
