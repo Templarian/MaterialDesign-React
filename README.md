@@ -5,7 +5,7 @@
 [View the Demo](https://templarian.github.io/@mdi/react/)
 
 ```
-npm install @mdi/react --save-dev
+npm install @mdi/react
 ```
 
 ## Usage
