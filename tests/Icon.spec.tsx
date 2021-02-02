@@ -219,6 +219,12 @@ describe("<Icon /> A11y", () => {
     expect(ariaLabelledby).to.equal('icon_labelledby_ icon_describedby_');
   });
 
+  it("id appended to aria-labelledby", () => {
+    const svgElement = shallow(<Icon path={path} title={'Foo'} description={'Bar'} id="hello" />);
+    const ariaLabelledby = svgElement.prop('aria-labelledby');
+    expect(ariaLabelledby).to.equal('icon_labelledby_hello icon_describedby_hello');
+  });
+
   it("title sets title", () => {
     const svgElement = shallow(<Icon path={path} title={'Foo'} />);
     const titleElement = svgElement.find('title');
