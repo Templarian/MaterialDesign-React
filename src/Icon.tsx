@@ -5,10 +5,11 @@ import { IconProps } from './IconProps';
 
 export { default as Stack } from './Stack';
 
-let id = 0;
+let idCounter = 0;
 
 export const Icon: FunctionComponent<IconProps> = React.forwardRef<SVGSVGElement, IconProps>(({
   path,
+  id = ++idCounter,
   title = null,
   description = null,
   size = null,
@@ -21,7 +22,6 @@ export const Icon: FunctionComponent<IconProps> = React.forwardRef<SVGSVGElement
   inStack = false,
   ...rest
 }, ref) => {
-  id++;
   const pathStyle: any = {};
   const transform = [];
   if (size !== null) {

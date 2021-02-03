@@ -5,6 +5,7 @@ export interface HTMLProps extends AriaAttributes {
 }
 
 export interface IconProps extends HTMLProps {
+  id?: string;
   path: string;
   ref?: RefObject<SVGSVGElement>;
   title?: string | null;
