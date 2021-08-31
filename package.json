@@ -1,6 +1,6 @@
 {
   "name": "@mdi/react",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "React Dist for Material Design Icons",
   "main": "Icon.js",
   "types": "dist/Icon.d.ts",
@@ -31,7 +31,8 @@
   ],
   "author": "Austin Andrews",
   "contributors": [
-    "Anton Zdanov <azdanov@pm.me> (https://azdanov.js.org/)"
+    "Anton Zdanov <azdanov@pm.me> (https://azdanov.js.org/)",
+    "Sergey Kozlov <sergeykozlov.2011@yandex.ru>"
   ],
   "license": "MIT",
   "bugs": {

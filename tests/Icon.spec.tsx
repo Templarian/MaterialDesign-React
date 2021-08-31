@@ -206,6 +206,16 @@ describe("<Icon /> A11y", () => {
     const svgElement = shallow(<Icon path={path} title={'Foo'} />);
     expect(svgElement.props().role).not.to.equal('presentation');
   });
+  
+  it('should set custom role', () => {
+    const svgElement = shallow(<Icon path={path} role={'custom'} />);
+    expect(svgElement.props().role).to.equal('custom');
+  });
+
+  it('role does not set', () => {
+    const svgElement = shallow(<Icon path={path} role={undefined} />);
+    expect(svgElement.props().role).to.equal(undefined);
+  });
 
   it("title sets aria-labelledby", () => {
     const svgElement = shallow(<Icon path={path} title={'Foo'} />);
