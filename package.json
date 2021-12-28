@@ -55,7 +55,6 @@
     "jsdom-global": "^3.0.2",
     "mocha": "^5.2.0",
     "nyc": "^12.0.2",
-    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "ts-loader": "^4.5.0",
@@ -65,5 +64,8 @@
     "typescript": "^3.7.5",
     "webpack": "^4.41.6",
     "webpack-command": "^0.4.2"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
   }
 }
