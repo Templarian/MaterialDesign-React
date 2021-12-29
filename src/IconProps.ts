@@ -1,7 +1,8 @@
-import { CSSProperties, RefObject, AriaAttributes } from 'react'
+import { CSSProperties, RefObject, AriaAttributes } from 'react';
 
 export interface HTMLProps extends AriaAttributes {
   className?: string;
+  role?: string | undefined;
 }
 
 export interface IconProps extends HTMLProps {
