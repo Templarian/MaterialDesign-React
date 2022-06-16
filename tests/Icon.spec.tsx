@@ -139,7 +139,7 @@ describe("<Icon path={path} spin />", () => {
   it("verify spin creates <style/>", () => {
     const svgElement = shallow(<Icon path={path} spin />);
     const styleElement = svgElement.childAt(0);
-    expect(styleElement.text()).to.equal('@keyframes spin { to { transform: rotate(360deg) } }');
+    expect(styleElement.text()).to.equal('@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }');
   });
 
   it("verify spin: boolean", () => {

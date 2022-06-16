@@ -111,8 +111,8 @@ export const Icon: FunctionComponent<IconProps> = React.forwardRef<SVGSVGElement
       {description && <desc id={describedById}>{description}</desc>}
       {!inStack && spin && (
         inverse
-          ? <style>{"@keyframes spin-inverse { to { transform: rotate(-360deg) } }"}</style>
-          : <style>{"@keyframes spin { to { transform: rotate(360deg) } }"}</style>
+          ? <style>{"@keyframes spin-inverse { from { transform: rotate(0deg) } to { transform: rotate(-360deg) } }"}</style>
+          : <style>{"@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }"}</style>
       )}
       {spinElement}
     </svg>
