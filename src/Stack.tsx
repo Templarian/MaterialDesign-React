@@ -72,8 +72,8 @@ const Stack: FunctionComponent<StackProps> = React.forwardRef<SVGSVGElement, Sta
       {description && <desc id={describedById}>{description}</desc>}
       {anySpin && (
         <style>
-          {"@keyframes spin { to { transform: rotate(360deg) } }"}
-          {"@keyframes spin-inverse { to { transform: rotate(-360deg) } }"}
+          {"@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }"}
+          {"@keyframes spin-inverse { from { transform: rotate(0deg) } to { transform: rotate(-360deg) } }"}
         </style>
       )}
       {childrenWithProps}
