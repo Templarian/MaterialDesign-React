@@ -14,7 +14,7 @@ The example below uses the `@mdi/js` package which contains all the MDI icon's p
 
 ```javascript
 import React, { Component } from 'react';
-import Icon from '@mdi/react';
+import { Icon } from '@mdi/react';
 import { mdiAccount } from '@mdi/js';
 
 class App extends Component {
@@ -37,7 +37,7 @@ To layer `<Icons/>` nest them inside of the `<Stack/>` component.
 
 ```javascript
 import React, { Component } from 'react';
-import Icon, { Stack } from '@mdi/react';
+import { Icon, Stack } from '@mdi/react';
 import { mdiAccount, mdiBlockHelper } from '@mdi/js';
 
 class App extends Component {
